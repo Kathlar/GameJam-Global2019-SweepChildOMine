@@ -2,17 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AMovement : MonoBehaviour
+public abstract class AMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    protected Vector3 lastMoveDirection;
+
+    void FixedUpdate()
     {
-        
+        if(lastMoveDirection != Vector3.zero) DoMove();
+        else DoIdle();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Move(Vector3 moveDirection)
     {
-        
+        lastMoveDirection = moveDirection;
+    }
+
+    protected abstract void DoMove();
+
+    public void Idle()
+    {
+        lastMoveDirection = Vector3.zero;
+    }
+
+    protected virtual void DoIdle()
+    {
+
     }
 }

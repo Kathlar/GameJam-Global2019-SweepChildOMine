@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int maxHealth = 50;
+    protected int currentHealth;
+
+    protected Vector3 startPosition;
+
+    protected int numberOfDeaths;
+
     void Start()
     {
-        
+        currentHealth = maxHealth;
+        startPosition = transform.position;
+    }
+    
+    public void GetDamage(int value)
+    {
+        currentHealth = Mathf.Clamp(currentHealth - value, 0, currentHealth);
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    protected void Die()
     {
-        
+        currentHealth = maxHealth;
+        transform.position = startPosition;
+        numberOfDeaths--;
     }
 }

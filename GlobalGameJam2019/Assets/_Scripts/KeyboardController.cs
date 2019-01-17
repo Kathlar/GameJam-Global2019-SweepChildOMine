@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyboardController : MonoBehaviour
+public class KeyboardController : APlayerController
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void CollectInputs()
     {
-        
-    }
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        horizontalSecondary = Input.GetAxis("Mouse X");
+        verticalSecondary = Input.GetAxis("Mouse Y");
+
+        shooting = Input.GetMouseButton(0);
     }
 }

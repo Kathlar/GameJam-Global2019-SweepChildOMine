@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TransformMovement : MonoBehaviour
+public class TransformMovement : AMovement
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float moveSpeed = 5f;
 
-    // Update is called once per frame
-    void Update()
+    protected override void DoMove()
     {
-        
+        transform.position += lastMoveDirection * moveSpeed * Time.fixedDeltaTime;
     }
 }

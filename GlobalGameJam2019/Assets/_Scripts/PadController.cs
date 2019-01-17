@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PadController : MonoBehaviour
+public class PadController : APlayerController
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void CollectInputs()
     {
-        
-    }
+        horizontal = Input.GetAxis("HorizontalPad");
+        vertical = Input.GetAxis("VerticalPad");
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        horizontalSecondary = Input.GetAxis("HorizontalPad2");
+        verticalSecondary = Input.GetAxis("VerticalPad2");
+
+        shooting = Input.GetButton("Fire1Pad");
     }
 }
