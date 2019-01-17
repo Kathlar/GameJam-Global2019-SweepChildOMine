@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public abstract class APlayerController : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public abstract class APlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R)) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         CollectInputs();
         HandleInputs();
     }
@@ -42,6 +44,6 @@ public abstract class APlayerController : MonoBehaviour
         if (Mathf.Abs(horizontalSecondary) > .2f || Mathf.Abs(verticalSecondary) > .2f)
             rotator.Rotate(rotateVector);
         
-        if (shooting) atack.Attack();
+        if (shooting && atack.enabled) atack.Attack();
     }
 }
