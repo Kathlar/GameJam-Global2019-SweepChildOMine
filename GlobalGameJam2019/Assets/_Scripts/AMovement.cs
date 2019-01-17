@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class AMovement : MonoBehaviour
 {
+    public Animator animator;
+
     protected Vector3 lastMoveDirection;
 
     void FixedUpdate()
@@ -15,6 +17,7 @@ public abstract class AMovement : MonoBehaviour
     public void Move(Vector3 moveDirection)
     {
         lastMoveDirection = moveDirection;
+        animator.SetBool("Move", true);
     }
 
     protected abstract void DoMove();
@@ -22,6 +25,7 @@ public abstract class AMovement : MonoBehaviour
     public void Idle()
     {
         lastMoveDirection = Vector3.zero;
+        animator.SetBool("Move", false);
     }
 
     protected virtual void DoIdle()
