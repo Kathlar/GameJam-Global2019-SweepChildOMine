@@ -1,0 +1,16 @@
+- przemieszczczanie obiektów (z punktu A do punktu B), wymagana jedna osoba
+- przemieszczanie obiektów (z punktu A do punktu B), wymagane dwie osoby
+- przemieszczanie obiektów (z punktu A do punktu B), wymagane trzy osoby (3 osoby to raczej max)
+- obracanie obiektów (wokó³ osi)
+- mycie obiektów (potrzeba pobraæ g¹bkê, namoczyæ (czas jak d³ugo pozostaje mokra, biegniesz do brudnej rzeczy)
+- czyszczenie obiektów na sucho (szmatka, lub sucha g¹bka)
+- naprawianie obiektów (procent uszkodzeñ koreluje z czasem naprawy) (potrzeba pobraæ narzêdzia)
+- odkurzanie pod³ogi (dok³adne - szybciej znika brud)(potrzebny odkurzacz)
+- zamiatanie pod³ogi (mniej dok³adne - wolniej znika brud)(potrzebna miot³a)
+- mycie pod³ogi (potrzebny mop, czas skutecznoœci mycia, wiadro)
+- mycie pod³ogi (urz¹dzenie do mycia, szybsze)
+- mycie pod³ogi autonomiczne - jeœli znajdziesz, klucz do schowka z i-robotem i go w³¹czysz
+- odbierz telefon (stacjonarny ??? )
+- otwórz drzwi (puka listonosz, s¹siad ...)
+- wynieœ pijanego kolegê
+- 
