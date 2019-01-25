@@ -5,12 +5,20 @@ using UnityEngine;
 
 public class PlayerGrab : MonoBehaviour
 {
+    protected PlayerMovement movement;
+
     public Transform grabPosition;
 
-    protected ItemObject itemToGrab;
+    public ItemObject itemToGrab;
     protected ItemObject grabbedItem;
+    protected Couch grabbedCouch;
 
     protected bool itemGrabbed;
+
+    private void Awake()
+    {
+        movement = GetComponent<PlayerMovement>();
+    }
 
     void OnTriggerEnter(Collider col)
     {
@@ -33,6 +41,9 @@ public class PlayerGrab : MonoBehaviour
         {
             itemToGrab = null;
         }
+
+        Couch couch = other.GetComponent<Couch>();
+        if (couch == grabbedCouch) DoDrop();
     }
 
     public void Grab()
@@ -45,12 +56,17 @@ public class PlayerGrab : MonoBehaviour
     {
         if (itemToGrab != null && !itemToGrab.grabbed)
         {
+            if (!itemToGrab.Grab(grabPosition, this)) return;
             itemGrabbed = true;
             grabbedItem = itemToGrab;
             itemToGrab = null;
-            grabbedItem.Grab(grabPosition);
-            grabbedItem.transform.DOLocalMove(Vector3.zero, .5f);
-            grabbedItem.transform.DOLocalRotate(Vector3.zero, 1);
+            grabbedItem.DoMove(Vector3.zero, .5f, 1f);
+
+            Couch couch = grabbedItem.GetComponent<Couch>();
+            if(couch != null)
+            {
+                this.grabbedCouch = couch;
+            }
         }
     }
 
@@ -60,5 +76,6 @@ public class PlayerGrab : MonoBehaviour
         grabbedItem.Drop();
         itemToGrab = grabbedItem;
         grabbedItem = null;
+        grabbedCouch = null;
     }
 }
