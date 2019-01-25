@@ -313,7 +313,7 @@ namespace InControl
 
 			foreach (var error in errors)
 			{
-				Debug.LogError( "Error enabling NativeInputDeviceManager: " + error );
+				//Debug.LogError( "Error enabling NativeInputDeviceManager: " + error );
 			}
 
 			return false;
