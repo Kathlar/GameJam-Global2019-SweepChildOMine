@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     protected const float _minimalInputVale = .2f;
+    protected float myMinimalInputVale;
+    protected bool setMinimalInputValue;
 
     public PlayerEntity entity;
 
@@ -13,9 +15,10 @@ public class PlayerController : MonoBehaviour
     protected PlayerGrab itemGrab;
 
     protected float horizontal, vertical;
-    protected bool grabItem;
+    protected float horizontalRotation, verticalRotation;
+    protected bool grabItem, shouldMove;
 
-    protected Vector3 lastMoveVector;
+    protected Vector3 lastMoveVector, lastRotationVector;
 
     public MeshRenderer coloredMesh;
 
@@ -27,24 +30,47 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(entity == null) return;
+        if (entity == null) return;
+        else SetMinimalInputValue();
         CollectInputs();
         HandleInputs();
+    }
+
+    void SetMinimalInputValue()
+    {
+        if(!setMinimalInputValue)
+        {
+            setMinimalInputValue = true;
+            myMinimalInputVale = entity.controllerType == PlayerEntity.PlayerControllerType.Keyboard ? 0 : _minimalInputVale;
+        }
     }
 
     protected void CollectInputs()
     {
         if (entity.controllerType == PlayerEntity.PlayerControllerType.Keyboard)
         {
-            horizontal = Input.GetAxis("Horizontal" + entity.numberOfControllerType.ToString());
-            vertical = Input.GetAxis("Vertical" + entity.numberOfControllerType.ToString());
+            shouldMove = !Input.GetButton("Fire1" + entity.numberOfControllerType.ToString());
+
+            horizontalRotation = Input.GetAxis("Horizontal" + entity.numberOfControllerType.ToString());
+            verticalRotation = Input.GetAxis("Vertical" + entity.numberOfControllerType.ToString());
+
+            if (shouldMove)
+            {
+                horizontal = horizontalRotation;
+                vertical = verticalRotation;
+            }
 
             grabItem = Input.GetButtonDown("Fire0" + entity.numberOfControllerType.ToString());
         }
         else if (entity.controllerType == PlayerEntity.PlayerControllerType.Pad && entity.inputDevice != null)
         {
+            shouldMove = true;
+
             horizontal = entity.inputDevice.LeftStickX;
             vertical = entity.inputDevice.LeftStickY;
+
+            horizontalRotation = entity.inputDevice.LeftStickX;
+            verticalRotation = entity.inputDevice.LeftStickY;
 
             grabItem = entity.inputDevice.Action1.WasPressed;
         }
@@ -53,9 +79,14 @@ public class PlayerController : MonoBehaviour
     protected void HandleInputs()
     {
         lastMoveVector = new Vector3(horizontal, 0, vertical);
+        lastRotationVector = new Vector3(horizontalRotation, 0, verticalRotation);
 
-        if (Mathf.Abs(horizontal) > _minimalInputVale || Mathf.Abs(vertical) > _minimalInputVale) movement.Move(lastMoveVector);
+        if (shouldMove && (Mathf.Abs(horizontal) > _minimalInputVale || Mathf.Abs(vertical) > _minimalInputVale)) movement.Move(lastMoveVector);
         else movement.Idle();
+
+        if(Mathf.Abs(horizontalRotation) > _minimalInputVale || Mathf.Abs(verticalRotation) > _minimalInputVale)
+            movement.Rotate(lastRotationVector);
+        else movement.RotationIdle();
 
         if(grabItem) itemGrab.Grab();
     }

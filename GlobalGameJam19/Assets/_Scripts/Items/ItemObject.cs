@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class ItemObject : MonoBehaviour
 {
+    public ItemObjectType objectType = ItemObjectType.Other;
+    public float status = 1;
     [HideInInspector] public MeshRenderer renderer;
     protected Collider collider;
     protected Rigidbody rb;
     protected Transform originalParent;
 
     [HideInInspector] public bool grabbed;
-
-    public float minScale = .8f, maxScale = 1.3f;
+    [HideInInspector] public Shelf objectOn;
 
     void Awake()
     {
@@ -19,10 +21,6 @@ public class ItemObject : MonoBehaviour
         collider = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
         originalParent = transform.parent;
-
-        float scale = Random.Range(minScale, maxScale);
-        float scaleMulti = Random.Range(minScale, maxScale);
-        transform.localScale = new Vector3(scale, scale * scaleMulti, scale/scaleMulti);
     }
 
     public void Grab(Transform parent = null)
@@ -37,6 +35,7 @@ public class ItemObject : MonoBehaviour
         }
 
         if (collider != null) collider.enabled = false;
+        if (objectOn != null) objectOn.PutOff();
     }
 
     public void Drop()
@@ -52,4 +51,9 @@ public class ItemObject : MonoBehaviour
 
         if (collider != null) collider.enabled = true;
     }
+}
+
+public enum ItemObjectType
+{
+    Chair, Plate, Other
 }
