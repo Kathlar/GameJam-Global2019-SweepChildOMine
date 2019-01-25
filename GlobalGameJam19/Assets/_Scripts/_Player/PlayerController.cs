@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    protected const float _minimalInputVale = .5f;
+    protected const float _minimalInputVale = .2f;
+    protected float myMinimalInputVale;
+    protected bool setMinimalInputValue;
 
     public PlayerEntity entity;
 
@@ -28,9 +30,19 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(entity == null) return;
+        if (entity == null) return;
+        else SetMinimalInputValue();
         CollectInputs();
         HandleInputs();
+    }
+
+    void SetMinimalInputValue()
+    {
+        if(!setMinimalInputValue)
+        {
+            setMinimalInputValue = true;
+            myMinimalInputVale = entity.controllerType == PlayerEntity.PlayerControllerType.Keyboard ? 0 : _minimalInputVale;
+        }
     }
 
     protected void CollectInputs()

@@ -296,6 +296,7 @@ MonoBehaviour:
   placePosition: {fileID: 4427842090337938}
   itemOn: {fileID: 0}
   progressBar: {fileID: 0}
+  itemChangeSpeed: 0.2
   waterParticle: {fileID: 198186152530375910}
 --- !u!198 &198186152530375910
 ParticleSystem:
