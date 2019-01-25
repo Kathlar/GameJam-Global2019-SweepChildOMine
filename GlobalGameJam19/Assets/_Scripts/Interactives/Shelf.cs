@@ -27,13 +27,14 @@ public class Shelf : AInteractive
         }
     }
 
-    void PutOn(ItemObject item)
+    protected virtual void PutOn(ItemObject item)
     {
         item.transform.position = placePosition.position;
         itemOn = item;
+        itemOn.objectOn = this;
     }
 
-    void PutOff()
+    public virtual void PutOff()
     {
         if (itemOn != null)
         {

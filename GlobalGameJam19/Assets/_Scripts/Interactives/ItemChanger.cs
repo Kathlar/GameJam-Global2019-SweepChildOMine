@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemChanger : AInteractive
+public class ItemChanger : Shelf
 {
     public ProgressBar progressBar;
+    public float itemChangeSpeed = .2f;
 
     protected virtual void Start()
     {
@@ -20,6 +21,11 @@ public class ItemChanger : AInteractive
 
     protected virtual void SetProgressBar()
     {
-        progressBar.SetPosition(transform.position + transform.up * 3);
+        progressBar.SetPosition(transform.position + transform.up * 1.5f);
+    }
+
+    protected virtual void Finnish()
+    {
+        progressBar.Hide();
     }
 }

@@ -137,5 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da40587c1587d247a53b810b25a97bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectType: 0
   renderer: {fileID: 0}
   grabbed: 0

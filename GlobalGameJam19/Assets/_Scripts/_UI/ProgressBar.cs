@@ -16,7 +16,7 @@ public class ProgressBar : MonoBehaviour
 
     public void SetValue(float value)
     {
-        bar.fillAmount = Mathf.Clamp(value, 0, 1);
+        bar.fillAmount = Mathf.Clamp(value, 0f, 1f);
     }
 
     public void SetValue(float currentValue, float maxValue)
