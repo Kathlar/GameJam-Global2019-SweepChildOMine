@@ -89,5 +89,5 @@ public class ItemObject : MonoBehaviour
 
 public enum ItemObjectType
 {
-    Chair, Plate, Other, Trash
+    Chair, Plate, Other, Trash, Cloth
 }
