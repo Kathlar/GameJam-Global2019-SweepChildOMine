@@ -2,13 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+using DG.Tweening;
 
 public class GameStats : MonoBehaviour
 {
     public TextMeshProUGUI timeLeftText;
     public float timeLeft = 300;
 
+    public float points, maxPoints;
+    public List<ItemPosition> itemPositions;
+
     bool gameEnded = false;
+
+    public TextMeshProUGUI endText;
+    public GameObject statistiscView;
+    public GameObject star1, star2, star3;
+
+    public AudioSource starSource;
+
+    private void Start()
+    {
+        CountMaxPoints();
+        statistiscView.SetActive(false);
+    }
 
     private void Update()
     {
@@ -37,5 +54,118 @@ public class GameStats : MonoBehaviour
         gameEnded = true;
         timeLeft = 0;
         timeLeftText.text = GetTimeInMinutes();
+        CountPoints();
+        statistiscView.SetActive(true);
+        foreach(var cipa in FindObjectsOfType<PlayerController>())
+        {
+            cipa.enabled = false;
+        }
+        StartCoroutine(EndCoroutine());
     }
+
+    IEnumerator EndCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        endText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(.5f);
+        RectTransform dupsko = star1.GetComponent<RectTransform>();
+        dupsko.localScale = Vector3.zero;
+        yield return new WaitForSeconds(1f);
+        star1.gameObject.SetActive(true);
+        dupsko.DOScale(Vector3.one, .7f);
+
+        dupsko = star2.GetComponent<RectTransform>();
+        dupsko.localScale = Vector3.zero;
+        if (points > .5f * maxPoints)
+        {
+            yield return new WaitForSeconds(1f);
+            star2.gameObject.SetActive(true);
+            dupsko.DOScale(Vector3.one, .7f);
+
+            dupsko = star3.GetComponent<RectTransform>();
+            dupsko.localScale = Vector3.zero;
+            if (points > .6f * maxPoints)
+            {
+                yield return new WaitForSeconds(1f);
+                star3.gameObject.SetActive(true);
+                dupsko.DOScale(Vector3.one, .7f);
+            }
+        }
+    }
+
+    void CountPoints()
+    {
+        float numberOfPoints = 0;
+        int test = 0;
+        foreach (var item in itemPositions)
+        {
+            if (Vector3.Distance(item.obj.position, item.wantedPosition.position) < 1)
+            {
+                numberOfPoints++;
+            }
+        }
+        Debug.Log(numberOfPoints);
+        foreach (var t in FindObjectsOfType<ItemObject>())
+        {
+            if (t.objectType == ItemObjectType.Plate && t.status < 1)
+            {
+                test++;
+            }
+        }
+        numberOfPoints += (float)(numberOfPlates - test);
+        test = 0;
+        Debug.Log(numberOfPoints);
+        foreach (var t in FindObjectsOfType<ItemObject>())
+        {
+            if (t.objectType == ItemObjectType.Trash)
+            {
+                test++;
+            }
+        }
+        numberOfPoints += (float)(numberOfTrash - test);
+        test = 0;
+        Debug.Log(numberOfPoints);
+        foreach (var tr in FindObjectsOfType<Dirt>())
+        {
+            test++;
+        }
+        numberOfPoints += (float)(numberOfDirt - test) * .1f;
+        points = numberOfPoints;
+    }
+
+    protected int numberOfPlates = 0, numberOfTrash = 0, numberOfDirt = 0;
+    void CountMaxPoints()
+    {
+        float numberOfPoints = 0;
+        foreach(var item in itemPositions)
+        {
+            numberOfPoints++;
+        }
+        foreach(var t in FindObjectsOfType<ItemObject>())
+        {
+            if(t.objectType == ItemObjectType.Plate)
+            {
+                numberOfPoints++;
+                numberOfPlates++;
+            }
+            if(t.objectType == ItemObjectType.Trash)
+            {
+                numberOfPoints++;
+                numberOfTrash++;
+            }
+        }
+        foreach(var tr in FindObjectsOfType<Dirt>())
+        {
+            numberOfPoints += .1f;
+            numberOfDirt++;
+        }
+        maxPoints = numberOfPoints;
+    }
+}
+
+[Serializable]
+public class ItemPosition
+{
+    public Transform obj;
+    public Transform wantedPosition;
 }

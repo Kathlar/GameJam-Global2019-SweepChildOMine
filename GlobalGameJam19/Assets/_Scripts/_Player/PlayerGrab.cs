@@ -74,7 +74,7 @@ public class PlayerGrab : MonoBehaviour
             {
                 this.grabbedCouch = couch;
             }
-            //grabbedCollider.enabled = true;
+            grabbedCollider.enabled = true;
         }
     }
 

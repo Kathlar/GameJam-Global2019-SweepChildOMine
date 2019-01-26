@@ -25,11 +25,13 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame ()
     {
+        camer.transform.DOKill();
         camer.transform.DOMove(playerPosition.position, 1f);
         camer.transform.DORotate(playerPosition.eulerAngles, 1f).OnComplete(delegate { playerMenu.SetActive(true); FindObjectOfType<PlayerChoosingMenu>().presInfo.SetActive(true);
             dupa = true;
             playerMenu.SetActive(true);
         });
+        Debug.Log("DUPA");
     }
 
     public void CancelPlay(bool move = true)
