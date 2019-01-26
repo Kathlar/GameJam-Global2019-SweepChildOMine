@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bin : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class Bin : Shelf
+{
+    protected override void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
+        ItemObject item = other.GetComponent<ItemObject>();
+        if (itemOn != null && itemOn.objectType == ItemObjectType.Trash)
+            Destroy(item.gameObject);
+    }
 }
