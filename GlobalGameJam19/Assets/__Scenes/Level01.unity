@@ -352,6 +352,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &248233631 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 82931008469279206, guid: 73e4aa4144bec00408fe7e623ad8d233,
+    type: 2}
+  m_PrefabInternal: {fileID: 671057194}
 --- !u!1001 &307449864
 Prefab:
   m_ObjectHideFlags: 0
@@ -752,6 +757,11 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114745646072216718, guid: 73e4aa4144bec00408fe7e623ad8d233,
+        type: 2}
+      propertyPath: starSource
+      value: 
+      objectReference: {fileID: 248233631}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73e4aa4144bec00408fe7e623ad8d233, type: 2}
   m_IsPrefabAsset: 0

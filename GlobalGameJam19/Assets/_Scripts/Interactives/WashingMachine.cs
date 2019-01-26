@@ -6,6 +6,7 @@ public class WashingMachine : Shelf {
 
     int currentCapacity = 0;
     public GameObject window;
+    public GameObject clothes;
     public Animator animator;
     Quaternion rotaion;
 
@@ -29,6 +30,7 @@ public class WashingMachine : Shelf {
                     window.GetComponent<MeshRenderer>().enabled = true;
                 Invoke("OpenWaschingMachine", 5f);
                 animator.SetBool("waschingMachine", true);
+                clothes.GetComponent<MeshRenderer>().enabled = true;
             }
             else
                 item.transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
