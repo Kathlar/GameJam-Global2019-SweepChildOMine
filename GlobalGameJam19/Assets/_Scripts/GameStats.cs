@@ -18,6 +18,7 @@ public class GameStats : MonoBehaviour
         {
             EndGame();
         }
+        if(timeLeftText!= null)
         timeLeftText.text = GetTimeInMinutes();
     }
 

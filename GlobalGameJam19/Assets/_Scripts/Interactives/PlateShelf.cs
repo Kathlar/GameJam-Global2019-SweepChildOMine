@@ -26,7 +26,7 @@ public class PlateShelf : Shelf
         {
             PutOn(item, platePositions[0]);
             platePositions.Remove(platePositions[0]);
-            Destroy(item);
+            //Destroy(item);
         }
 
         if (itemOn != null && itemOn.objectType == ItemObjectType.Plate && item.status == 1)
