@@ -26,14 +26,21 @@ public class PlateShelf : Shelf
         {
             PutOn(item, platePositions[0]);
             platePositions.Remove(platePositions[0]);
-            //Destroy(item);
         }
 
-        if (itemOn != null && itemOn.objectType == ItemObjectType.Plate && item.status >= 1)
+        if (itemOn != null)
         {
-            itemOn.GetComponent<Rigidbody>().isKinematic = true;
-            itemOn.GetComponent<Rigidbody>().useGravity = false;
-            itemOn.enabled = false;
+            if (itemOn.objectType == ItemObjectType.Plate && item.status >= 1)
+            {
+                itemOn.GetComponent<Rigidbody>().isKinematic = true;
+                itemOn.GetComponent<Rigidbody>().useGravity = false;
+                itemOn.enabled = false;
+                Destroy(item);
+            }
+            else
+            {
+                item.transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+            }
         }
     }
 
