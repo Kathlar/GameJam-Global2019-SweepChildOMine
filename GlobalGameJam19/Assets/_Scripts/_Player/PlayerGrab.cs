@@ -10,7 +10,7 @@ public class PlayerGrab : MonoBehaviour
     public Transform grabPosition;
 
     protected ItemObject itemToGrab;
-    protected ItemObject grabbedItem;
+    public ItemObject grabbedItem;
     protected Couch grabbedCouch;
 
     protected bool itemGrabbed;
@@ -43,7 +43,7 @@ public class PlayerGrab : MonoBehaviour
         }
 
         Couch couch = other.GetComponent<Couch>();
-        if (couch == grabbedCouch) DoDrop();
+        if (couch != null && couch == grabbedCouch) DoDrop();
     }
 
     public void Grab()

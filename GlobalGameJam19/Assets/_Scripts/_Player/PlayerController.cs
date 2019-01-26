@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     protected float horizontal, vertical;
     protected float horizontalRotation, verticalRotation;
-    protected bool grabItem, shouldMove;
+    public bool grabItem, shouldMove;
 
     protected Vector3 lastMoveVector, lastRotationVector;
 
