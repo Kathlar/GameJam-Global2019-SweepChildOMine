@@ -20,6 +20,7 @@ public class GameStats : MonoBehaviour
     public GameObject star1, star2, star3;
 
     public AudioSource starSource;
+    public AudioClip boo;
 
     private void Start()
     {
@@ -65,9 +66,12 @@ public class GameStats : MonoBehaviour
 
     IEnumerator EndCoroutine()
     {
-        yield return new WaitForSeconds(1f);
+        if (points < .5f * maxPoints) starSource.clip = boo;
+        yield return new WaitForSeconds(.2f);
         endText.gameObject.SetActive(true);
+        endText.DOColor(Color.white, .5f);
         yield return new WaitForSeconds(.5f);
+        starSource.Play();
         RectTransform dupsko = star1.GetComponent<RectTransform>();
         dupsko.localScale = Vector3.zero;
         yield return new WaitForSeconds(1f);
