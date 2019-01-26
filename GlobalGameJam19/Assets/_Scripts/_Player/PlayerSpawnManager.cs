@@ -7,7 +7,7 @@ public class PlayerSpawnManager : MonoBehaviour
 {
     private CustomPlayerSpawner customSpawner;
 
-    public GameObject playerPrefab;
+    public List<GameObject> playerPrefabs = new List<GameObject>();
 
     public List<Transform> spawnPoints;
 
@@ -36,7 +36,7 @@ public class PlayerSpawnManager : MonoBehaviour
         List<Transform> playerTransforms = new List<Transform>();
         for (int i = 0; i < PlayerEntity.Entities.Count; i++)
         {
-            PlayerController player = Instantiate(playerPrefab, spawnPoints[i].position, spawnPoints[i].rotation)
+            PlayerController player = Instantiate(playerPrefabs[UnityEngine.Random.Range(0, 2)], spawnPoints[i].position, spawnPoints[i].rotation)
                 .GetComponent<PlayerController>();
 
             player.entity = PlayerEntity.Entities[i];
