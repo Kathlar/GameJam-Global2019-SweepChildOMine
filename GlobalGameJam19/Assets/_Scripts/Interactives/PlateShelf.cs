@@ -29,7 +29,7 @@ public class PlateShelf : Shelf
             //Destroy(item);
         }
 
-        if (itemOn != null && itemOn.objectType == ItemObjectType.Plate && item.status == 1)
+        if (itemOn != null && itemOn.objectType == ItemObjectType.Plate && item.status >= 1)
         {
             itemOn.GetComponent<Rigidbody>().isKinematic = true;
             itemOn.GetComponent<Rigidbody>().useGravity = false;
