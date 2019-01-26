@@ -494,11 +494,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7fc78c6ed10a6c4387bd5a0e824499e, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &436967677 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: bfdb6623e4d583a4db78a56058d28f58,
-    type: 2}
-  m_PrefabInternal: {fileID: 1179210169}
 --- !u!1 &512988375
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +582,6 @@ GameObject:
   m_Component:
   - component: {fileID: 556928129}
   - component: {fileID: 556928128}
-  - component: {fileID: 556928127}
   - component: {fileID: 556928130}
   m_Layer: 0
   m_Name: Couch
@@ -596,29 +590,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &556928127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 556928126}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32c9e14023dc6994eb2ee0e038f02f0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectType: 2
-  status: 1
-  renderer: {fileID: 0}
-  grabbed: 0
-  objectOn: {fileID: 0}
-  dirt: {fileID: 0}
-  leftPoint: {fileID: 512988376}
-  rightPoint: {fileID: 885238665}
-  regularState: {fileID: 968222971}
-  grabbedRightState: {fileID: 436967677}
-  grabbedLeftState: {fileID: 734602145}
-  grabbedBothState: {fileID: 892658768}
 --- !u!54 &556928128
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -711,11 +682,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7fc78c6ed10a6c4387bd5a0e824499e, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &734602145 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: bfdb6623e4d583a4db78a56058d28f58,
-    type: 2}
-  m_PrefabInternal: {fileID: 784435999}
 --- !u!1001 &784435999
 Prefab:
   m_ObjectHideFlags: 0
@@ -849,11 +815,6 @@ Transform:
   m_Father: {fileID: 556928129}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &892658768 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: bfdb6623e4d583a4db78a56058d28f58,
-    type: 2}
-  m_PrefabInternal: {fileID: 898098108}
 --- !u!1001 &898098108
 Prefab:
   m_ObjectHideFlags: 0
@@ -1001,11 +962,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfdb6623e4d583a4db78a56058d28f58, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &968222971 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: bfdb6623e4d583a4db78a56058d28f58,
-    type: 2}
-  m_PrefabInternal: {fileID: 968222970}
 --- !u!4 &968222972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: bfdb6623e4d583a4db78a56058d28f58,
