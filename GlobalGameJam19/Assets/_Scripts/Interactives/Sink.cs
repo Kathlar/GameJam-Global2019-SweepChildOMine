@@ -5,9 +5,11 @@ using UnityEngine;
 public class Sink : ItemChanger
 {
     public ParticleSystem waterParticle;
+    protected AudioSource waterSound;
 
     protected override void Start()
     {
+        waterSound = GetComponent<AudioSource>();
         base.Start();
         waterParticle.Stop(true);
     }
@@ -27,6 +29,7 @@ public class Sink : ItemChanger
     {
         if(item.objectType == ItemObjectType.Plate)
         {
+            waterSound.Play();
             progressBar.Show();
             base.PutOn(item);
             waterParticle.Play(true);
@@ -38,6 +41,7 @@ public class Sink : ItemChanger
         base.PutOff();
         progressBar.Hide();
         waterParticle.Stop(true);
+        waterSound.Stop();
     }
 
     protected override void Finnish()
