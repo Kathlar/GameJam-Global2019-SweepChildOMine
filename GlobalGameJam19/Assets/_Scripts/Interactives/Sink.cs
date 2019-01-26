@@ -42,6 +42,7 @@ public class Sink : ItemChanger
 
     protected override void Finnish()
     {
+        if (itemOn.objectType == ItemObjectType.Plate && itemOn.dirt != null) Destroy(itemOn.dirt);
         base.Finnish();
     }
 }

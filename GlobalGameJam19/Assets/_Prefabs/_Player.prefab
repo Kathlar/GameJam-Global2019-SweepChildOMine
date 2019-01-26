@@ -188,7 +188,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1463252584691476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9177433, y: 0.5, z: -3.2512045}
+  m_LocalPosition: {x: -5.1166196, y: 0.72, z: -0.6861658}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4278037961977502}
@@ -373,6 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabPosition: {fileID: 4231167713498338}
+  itemGrabbed: 0
 --- !u!114 &114923105985054420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -385,6 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
+  actualMoveSpeed: 0
   rotateSpeed: 15
 --- !u!136 &136377066339854214
 CapsuleCollider:
@@ -395,7 +397,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

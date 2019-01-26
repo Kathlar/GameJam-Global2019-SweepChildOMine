@@ -13,7 +13,7 @@ public class PlayerGrab : MonoBehaviour
     protected ItemObject grabbedItem;
     protected Couch grabbedCouch;
 
-    protected bool itemGrabbed;
+    [HideInInspector] public bool itemGrabbed;
 
     private void Awake()
     {
@@ -43,7 +43,7 @@ public class PlayerGrab : MonoBehaviour
         }
 
         Couch couch = other.GetComponent<Couch>();
-        if (couch == grabbedCouch) DoDrop();
+        if (couch != null && couch == grabbedCouch) DoDrop();
     }
 
     public void Grab()
@@ -56,6 +56,7 @@ public class PlayerGrab : MonoBehaviour
     {
         if (itemToGrab != null)
         {
+            movement.actualMoveSpeed = .6f * movement.moveSpeed;
             if (!itemToGrab.Grab(grabPosition, this)) return;
             itemGrabbed = true;
             grabbedItem = itemToGrab;
@@ -72,6 +73,7 @@ public class PlayerGrab : MonoBehaviour
 
     protected void DoDrop()
     {
+        movement.actualMoveSpeed = movement.moveSpeed;
         itemGrabbed = false;
         if (grabbedItem != null)
         {

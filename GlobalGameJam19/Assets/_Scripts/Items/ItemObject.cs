@@ -9,19 +9,25 @@ public class ItemObject : MonoBehaviour
     public ItemObjectType objectType = ItemObjectType.Other;
     public float status = 1;
     [HideInInspector] public MeshRenderer renderer;
-    protected Collider collider;
+    protected List<Collider> colliders;
     protected Rigidbody rb;
     protected Transform originalParent;
 
     [HideInInspector] public bool grabbed;
     [HideInInspector] public Shelf objectOn;
 
+    public GameObject dirt;
+
     bool movingToPlayersHand;
 
     void Awake()
     {
         renderer = GetComponent<MeshRenderer>();
-        collider = GetComponent<Collider>();
+        colliders = new List<Collider>();
+        foreach (Collider col in GetComponents<Collider>())
+        {
+            colliders.Add(col);
+        }
         rb = GetComponent<Rigidbody>();
         originalParent = transform.parent;
     }
@@ -41,8 +47,14 @@ public class ItemObject : MonoBehaviour
             rb.isKinematic = true;
             rb.useGravity = false;
         }
-
-        if (collider != null) collider.enabled = false;
+        if (colliders != null)
+        {
+            foreach (Collider col in colliders)
+            {
+                if (!col.isTrigger)
+                    col.enabled = false;
+            }
+        }
         if (objectOn != null) objectOn.PutOff();
         return true;
     }
@@ -58,7 +70,13 @@ public class ItemObject : MonoBehaviour
             rb.useGravity = true;
         }
 
-        if (collider != null) collider.enabled = true;
+        if (colliders != null)
+        {
+            foreach (Collider col in colliders)
+            {
+                col.enabled = true;
+            }
+        }
     }
 
     public virtual void DoMove(Vector3 localPos, float moveTime = .5f, float rotateTime = 1f)
