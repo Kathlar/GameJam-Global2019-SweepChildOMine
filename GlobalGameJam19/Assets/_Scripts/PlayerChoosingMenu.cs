@@ -65,14 +65,14 @@ public class PlayerChoosingMenu : MonoBehaviour
         {
             if(!padsUsed.Contains(i))
             {
-                if(InputManager.ActiveDevices[i].Action1)
+                presInfo.SetActive(false);
+                if (InputManager.ActiveDevices[i].Action1)
                 {
                     padsUsed.Add(i);
                     playerWindows[currentWindow].SetActive(true);
                     CustomPlayerSpawner.customInfo.Add(new DebugPlayerSpawnInformation(PlayerEntity.PlayerControllerType.Pad));
                     playerTexts[currentWindow].text = "PLAYER " + (currentWindow + 1).ToString() + "\n" + "PAD";
                     currentWindow++;
-                    presInfo.SetActive(false);
                 }
             }
         }
@@ -80,9 +80,15 @@ public class PlayerChoosingMenu : MonoBehaviour
 
     public void StartGame()
     {
-        MainMenu.dupa = false;
-        if (currentWindow > 0)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if(currentWindow > 0)
+        {
+            MainMenu menu = FindObjectOfType<MainMenu>();
+            menu.blackoutImage.color = new Color(0, 0, 0, 1);
+            MainMenu.dupa = false;
+            menu.CancelPlay(false);
+            if (currentWindow > 0)
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     public void Cancel()

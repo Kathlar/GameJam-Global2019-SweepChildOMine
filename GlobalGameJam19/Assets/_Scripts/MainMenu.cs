@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -10,7 +11,17 @@ public class MainMenu : MonoBehaviour
     public Transform startPosition, playerPosition;
     public GameObject playerMenu;
     public static bool dupa;
+    public Image blackoutImage;
 
+    private void OnSceneLoad()
+    {
+        if(blackoutImage != null)
+        {
+            blackoutImage.gameObject.SetActive(true);
+            blackoutImage.enabled = true;
+            blackoutImage.DOColor(new Color(0, 0, 0, 0), 1.5f);
+        }
+    }
 
     public void PlayGame ()
     {
@@ -21,11 +32,14 @@ public class MainMenu : MonoBehaviour
         });
     }
 
-    public void CancelPlay()
+    public void CancelPlay(bool move = true)
     {
         playerMenu.SetActive(false);
-        camer.transform.DOMove(startPosition.position, 1f);
-        camer.transform.DORotate(startPosition.eulerAngles, 1f);
+        if(move)
+        {
+            camer.transform.DOMove(startPosition.position, 1f);
+            camer.transform.DORotate(startPosition.eulerAngles, 1f);
+        }
         dupa = false;
     }
 
