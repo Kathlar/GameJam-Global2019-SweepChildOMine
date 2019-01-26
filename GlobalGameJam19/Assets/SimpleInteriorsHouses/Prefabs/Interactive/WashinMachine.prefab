@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 65583859710994902}
   - component: {fileID: 65723187234392656}
   - component: {fileID: 114680205727750180}
+  - component: {fileID: 82824964941338858}
   m_Layer: 0
   m_Name: WashinMachine
   m_TagString: Untagged
@@ -425,6 +426,101 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.64979374, y: 1.503988, z: 1.1683804}
   m_Center: {x: -0.046305362, y: 0.751994, z: 0.3257776}
+--- !u!82 &82824964941338858
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1959162101535746}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8a39e879313c80f418b1f8c30dfb3427, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &95446196094959292
 Animator:
   serializedVersion: 3
@@ -457,6 +553,7 @@ MonoBehaviour:
   objectType: 4
   status: 1
   renderer: {fileID: 0}
+  originalParent: {fileID: 0}
   grabbed: 0
   objectOn: {fileID: 0}
   dirt: {fileID: 0}
@@ -479,6 +576,7 @@ MonoBehaviour:
   Clothes:
   - {fileID: 1773495586677106}
   - {fileID: 1264918815342492}
+  fiut: {fileID: 0}
 --- !u!114 &114736539754245308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -493,6 +591,7 @@ MonoBehaviour:
   objectType: 4
   status: 1
   renderer: {fileID: 0}
+  originalParent: {fileID: 0}
   grabbed: 0
   objectOn: {fileID: 0}
   dirt: {fileID: 0}
