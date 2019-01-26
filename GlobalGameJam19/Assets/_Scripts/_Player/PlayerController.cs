@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     protected float horizontal, vertical;
     protected float horizontalRotation, verticalRotation;
-    public bool grabItem, shouldMove;
+    protected bool grabItem, shouldMove, shouldntRotate;
 
     protected Vector3 lastMoveVector, lastRotationVector;
 
@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
         if (entity.controllerType == PlayerEntity.PlayerControllerType.Keyboard)
         {
             shouldMove = !Input.GetButton("Fire1" + entity.numberOfControllerType.ToString());
+            shouldntRotate = Input.GetButton("Fire2" + entity.numberOfControllerType.ToString());
 
             horizontalRotation = Input.GetAxis("Horizontal" + entity.numberOfControllerType.ToString());
             verticalRotation = Input.GetAxis("Vertical" + entity.numberOfControllerType.ToString());
@@ -65,6 +66,7 @@ public class PlayerController : MonoBehaviour
         else if (entity.controllerType == PlayerEntity.PlayerControllerType.Pad && entity.inputDevice != null)
         {
             shouldMove = true;
+            shouldntRotate = entity.inputDevice.Action4;
 
             horizontal = entity.inputDevice.LeftStickX;
             vertical = entity.inputDevice.LeftStickY;
@@ -84,7 +86,7 @@ public class PlayerController : MonoBehaviour
         if (shouldMove && (Mathf.Abs(horizontal) > _minimalInputVale || Mathf.Abs(vertical) > _minimalInputVale)) movement.Move(lastMoveVector);
         else movement.Idle();
 
-        if(Mathf.Abs(horizontalRotation) > _minimalInputVale || Mathf.Abs(verticalRotation) > _minimalInputVale)
+        if(!shouldntRotate && (Mathf.Abs(horizontalRotation) > _minimalInputVale || Mathf.Abs(verticalRotation) > _minimalInputVale))
             movement.Rotate(lastRotationVector);
         else movement.RotationIdle();
 

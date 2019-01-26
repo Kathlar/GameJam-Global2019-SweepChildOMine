@@ -129,11 +129,6 @@ public class Couch : ItemObject
         else if (proposedState == State.Both) grabbedBothState.SetActive(true);
     }
 
-    public override void DoMove(Vector3 localPos, float moveTime = 0.5F, float rotateTime = 1)
-    {
-
-    }
-
     public enum State
     {
         Regular, Left, Right, Both

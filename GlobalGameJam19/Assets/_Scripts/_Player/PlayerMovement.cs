@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] protected float moveSpeed = 5f;
+    [HideInInspector] public float moveSpeed = 7f, actualMoveSpeed;
     [SerializeField] protected float rotateSpeed = 5f;
 
     protected Vector3 lastMoveVector, lastLookDirection;
     protected bool shouldMove, shouldRotate;
 
+    private void Start()
+    {
+        actualMoveSpeed = moveSpeed;
+    }
+
     void FixedUpdate()
     {
         if (shouldMove)
         {
-            transform.position += transform.forward * moveSpeed * Time.fixedDeltaTime;
+            transform.position += transform.forward * actualMoveSpeed * Time.fixedDeltaTime;
         }
         if(shouldRotate)
         {

@@ -16,13 +16,15 @@ public class ItemObject : MonoBehaviour
     [HideInInspector] public bool grabbed;
     [HideInInspector] public Shelf objectOn;
 
+    public GameObject dirt;
+
     bool movingToPlayersHand;
 
-    void Awake()
+    protected virtual void Awake()
     {
         renderer = GetComponent<MeshRenderer>();
         colliders = new List<Collider>();
-        foreach(Collider col in GetComponents<Collider>())
+        foreach (Collider col in GetComponents<Collider>())
         {
             colliders.Add(col);
         }
@@ -45,12 +47,12 @@ public class ItemObject : MonoBehaviour
             rb.isKinematic = true;
             rb.useGravity = false;
         }
-
         if (colliders != null)
         {
-            foreach(Collider col in colliders)
+            foreach (Collider col in colliders)
             {
-                col.enabled = false;
+                if (!col.isTrigger)
+                    col.enabled = false;
             }
         }
         if (objectOn != null) objectOn.PutOff();
@@ -68,7 +70,6 @@ public class ItemObject : MonoBehaviour
             rb.useGravity = true;
         }
 
-
         if (colliders != null)
         {
             foreach (Collider col in colliders)
@@ -78,15 +79,15 @@ public class ItemObject : MonoBehaviour
         }
     }
 
-    public virtual void DoMove(Vector3 localPos, float moveTime = .5f, float rotateTime = 1f)
+    public virtual void DoMove(Vector3 localPos, PlayerGrab player, float moveTime = .5f, float rotateTime = 1f)
     {
         movingToPlayersHand = true;
         transform.DOLocalMove(localPos, moveTime);
-        transform.DOLocalRotate(localPos, rotateTime).OnComplete(delegate { movingToPlayersHand = false; });
+        transform.DOLocalRotate(localPos, rotateTime).OnComplete(delegate { movingToPlayersHand = false; player.inProgress = false; });
     }
 }
 
 public enum ItemObjectType
 {
-    Chair, Plate, Other
+    Chair, Plate, Other, Trash
 }

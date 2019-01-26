@@ -10,10 +10,11 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
-  - component: {fileID: 65875279045508636}
-  - component: {fileID: 54190569503567102}
+  - component: {fileID: 65441908101002672}
+  - component: {fileID: 54330837296671724}
+  - component: {fileID: 114588872998089106}
   m_Layer: 0
-  m_Name: Prop_SoapDispencer
+  m_Name: Prop_Plant_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.819845, y: -32.962185, z: 20.184174}
+  m_LocalPosition: {x: -25.68128, y: -22.674313, z: 26.378216}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,7 +74,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mesh: {fileID: 4300000, guid: 9ce17103b0dee1b488578a25e5172f67, type: 3}
+  m_Mesh: {fileID: 4300000, guid: dc5ab69d66a46d34988ce7ebf29481e3, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -85,7 +86,7 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabAsset: 1
---- !u!54 &54190569503567102
+--- !u!54 &54330837296671724
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,7 +101,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65875279045508636
+--- !u!65 &65441908101002672
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,5 +111,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.119630575, y: 0.31578577, z: 0.15128922}
-  m_Center: {x: -0.00000012107193, y: 0.15789288, z: -0.0018898249}
+  m_Size: {x: 0.3107152, y: 0.41565824, z: 0.3585539}
+  m_Center: {x: 0.00000023841858, y: 0.20782912, z: 0}
+--- !u!114 &114588872998089106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4da40587c1587d247a53b810b25a97bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 2
+  status: 1
+  renderer: {fileID: 0}
+  grabbed: 0
+  objectOn: {fileID: 0}
