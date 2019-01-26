@@ -23,7 +23,7 @@ public class Sink : ItemChanger
         }
     }
 
-    protected override void PutOn(ItemObject item)
+    protected override void PutOn(ItemObject item, Transform placePosition = null)
     {
         if(item.objectType == ItemObjectType.Plate)
         {
