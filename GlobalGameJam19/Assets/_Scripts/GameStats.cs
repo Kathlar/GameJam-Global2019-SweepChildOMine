@@ -15,8 +15,11 @@ public class GameStats : MonoBehaviour
 
     bool gameEnded = false;
 
+    public TextMeshProUGUI endText;
     public GameObject statistiscView;
     public GameObject star1, star2, star3;
+
+    public AudioSource starSource;
 
     private void Start()
     {
@@ -62,6 +65,9 @@ public class GameStats : MonoBehaviour
 
     IEnumerator EndCoroutine()
     {
+        yield return new WaitForSeconds(1f);
+        endText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(.5f);
         RectTransform dupsko = star1.GetComponent<RectTransform>();
         dupsko.localScale = Vector3.zero;
         yield return new WaitForSeconds(1f);
@@ -98,15 +104,17 @@ public class GameStats : MonoBehaviour
                 numberOfPoints++;
             }
         }
+        Debug.Log(numberOfPoints);
         foreach (var t in FindObjectsOfType<ItemObject>())
         {
-            if (t.objectType == ItemObjectType.Plate)
+            if (t.objectType == ItemObjectType.Plate && t.status < 1)
             {
                 test++;
             }
         }
         numberOfPoints += (float)(numberOfPlates - test);
         test = 0;
+        Debug.Log(numberOfPoints);
         foreach (var t in FindObjectsOfType<ItemObject>())
         {
             if (t.objectType == ItemObjectType.Trash)
@@ -116,6 +124,7 @@ public class GameStats : MonoBehaviour
         }
         numberOfPoints += (float)(numberOfTrash - test);
         test = 0;
+        Debug.Log(numberOfPoints);
         foreach (var tr in FindObjectsOfType<Dirt>())
         {
             test++;
@@ -124,7 +133,7 @@ public class GameStats : MonoBehaviour
         points = numberOfPoints;
     }
 
-    private int numberOfPlates = 0, numberOfTrash = 0, numberOfDirt = 0;
+    protected int numberOfPlates = 0, numberOfTrash = 0, numberOfDirt = 0;
     void CountMaxPoints()
     {
         float numberOfPoints = 0;

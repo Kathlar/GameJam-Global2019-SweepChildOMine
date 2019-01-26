@@ -8,10 +8,13 @@ public class Broom : ItemObject
     protected Dictionary<Dirt, float> dirts = new Dictionary<Dirt, float>();
     public float speed = 1;
 
+    protected AudioSource sweepSound;
+
     private void Awake()
     {
         base.Awake();
         animator = GetComponent<Animator>();
+        sweepSound = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -56,6 +59,7 @@ public class Broom : ItemObject
 
     public override bool Grab(Transform parent = null, PlayerGrab player = null)
     {
+        sweepSound.Play();
         bool reslt = base.Grab(parent, player);
         if(animator != null)
             animator.SetBool("used", true);
@@ -68,7 +72,8 @@ public class Broom : ItemObject
 
     public override void Drop(PlayerGrab player = null)
     {
-        if(animator != null)
+        sweepSound.Stop();
+        if (animator != null)
             animator.SetBool("used", false);
         base.Drop(player);
     }
