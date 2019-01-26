@@ -164,6 +164,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1686443726667060
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4431407878051312}
+  m_Layer: 0
+  m_Name: RegularHandsPoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1781219616916066
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +213,21 @@ GameObject:
   - component: {fileID: 23430846140085974}
   m_Layer: 0
   m_Name: Cylinder002
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1882308516644872
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4638085938365206}
+  m_Layer: 0
+  m_Name: HandsUpPoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -261,6 +291,19 @@ Transform:
   m_Father: {fileID: 4545583878949146}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4431407878051312
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1686443726667060}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.18764478, y: 0.18764478, z: 0.18764478}
+  m_Children: []
+  m_Father: {fileID: 4545583878949146}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4446866164417222
 Transform:
   m_ObjectHideFlags: 1
@@ -281,7 +324,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1908802146504810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.403, z: 1.084}
+  m_LocalPosition: {x: 0, y: 0.403, z: 0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4498323659738666}
@@ -294,7 +337,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1781219616916066}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.8971496, y: 0.77, z: -0.10714674}
+  m_LocalPosition: {x: 4.354079, y: -0.5, z: -2.3933}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4653765529427566}
@@ -332,6 +375,8 @@ Transform:
   - {fileID: 4592049540729496}
   - {fileID: 4358077538060156}
   - {fileID: 4776328328560648}
+  - {fileID: 4431407878051312}
+  - {fileID: 4638085938365206}
   m_Father: {fileID: 4653765529427566}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -360,6 +405,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4545583878949146}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4638085938365206
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1882308516644872}
+  m_LocalRotation: {x: -0.6419364, y: -0, z: -0, w: 0.7667579}
+  m_LocalPosition: {x: 0, y: -0.0040000025, z: 0.003000002}
+  m_LocalScale: {x: 0.122864164, y: 0.18764481, z: 0.18764481}
+  m_Children: []
+  m_Father: {fileID: 4545583878949146}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4653765529427566
 Transform:
@@ -917,6 +975,9 @@ MonoBehaviour:
   itemGrabbed: 0
   inProgress: 0
   grabbedCollider: {fileID: 65107610704988142}
+  hands: {fileID: 4686368007955362}
+  handsUpPoint: {fileID: 4638085938365206}
+  regularHandsPoint: {fileID: 4431407878051312}
 --- !u!114 &114737314119354568
 MonoBehaviour:
   m_ObjectHideFlags: 1

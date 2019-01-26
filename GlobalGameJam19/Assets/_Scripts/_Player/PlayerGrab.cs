@@ -19,6 +19,10 @@ public class PlayerGrab : MonoBehaviour
 
     public Collider grabbedCollider;
 
+    public Transform hands;
+    public Transform handsUpPoint;
+    public Transform regularHandsPoint;
+
     private void Awake()
     {
         movement = GetComponent<PlayerMovement>();
@@ -61,6 +65,9 @@ public class PlayerGrab : MonoBehaviour
     {
         if (itemToGrab != null)
         {
+            hands.DOLocalMove(handsUpPoint.localPosition, .8f);
+            hands.DOLocalRotate(handsUpPoint.localEulerAngles, .8f);
+            //hands.DOScale(handsUpPoint.localScale, .8f);
             inProgress = true;
             movement.actualMoveSpeed = .6f * movement.moveSpeed;
             if (!itemToGrab.Grab(grabPosition, this)) return;
@@ -80,6 +87,9 @@ public class PlayerGrab : MonoBehaviour
 
     protected void DoDrop()
     {
+        hands.DOLocalMove(regularHandsPoint.localPosition, .8f);
+        hands.DOLocalRotate(regularHandsPoint.localEulerAngles, .8f);
+        //hands.DOScale(regularHandsPoint.localScale, .8f);
         grabbedCollider.enabled = false;
         movement.actualMoveSpeed = movement.moveSpeed;
         itemGrabbed = false;
