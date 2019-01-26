@@ -57,7 +57,8 @@ public class Broom : ItemObject
     public override bool Grab(Transform parent = null, PlayerGrab player = null)
     {
         bool reslt = base.Grab(parent, player);
-        animator.SetBool("used", true);
+        if(animator != null)
+            animator.SetBool("used", true);
         //foreach(Collider col in colliders)
         //{
         //    col.enabled = true;
@@ -67,7 +68,8 @@ public class Broom : ItemObject
 
     public override void Drop(PlayerGrab player = null)
     {
-        animator.SetBool("used", false);
+        if(animator != null)
+            animator.SetBool("used", false);
         base.Drop(player);
     }
 }

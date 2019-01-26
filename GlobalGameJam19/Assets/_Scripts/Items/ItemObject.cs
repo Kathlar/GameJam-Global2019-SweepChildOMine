@@ -79,11 +79,11 @@ public class ItemObject : MonoBehaviour
         }
     }
 
-    public virtual void DoMove(Vector3 localPos, float moveTime = .5f, float rotateTime = 1f)
+    public virtual void DoMove(Vector3 localPos, PlayerGrab player, float moveTime = .5f, float rotateTime = 1f)
     {
         movingToPlayersHand = true;
         transform.DOLocalMove(localPos, moveTime);
-        transform.DOLocalRotate(localPos, rotateTime).OnComplete(delegate { movingToPlayersHand = false; });
+        transform.DOLocalRotate(localPos, rotateTime).OnComplete(delegate { movingToPlayersHand = false; player.inProgress = false; });
     }
 }
 
