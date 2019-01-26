@@ -10,8 +10,11 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
+  - component: {fileID: 65360676212029722}
+  - component: {fileID: 65435801125315586}
+  - component: {fileID: 65644250482514582}
   m_Layer: 0
-  m_Name: Prop_ToiletRoll
+  m_Name: Prop_TowelSmall_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.3190203, y: -0.766, z: 14.026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -71,7 +74,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mesh: {fileID: 4300000, guid: 56a9ee646a7fd76439764a1dbeef67de, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 3a0efa5260cbdb049a34ab09464b23da, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -83,3 +86,39 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabAsset: 1
+--- !u!65 &65360676212029722
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2751212, y: 0.39842665, z: 0.05697632}
+  m_Center: {x: 0, y: -0.000000059604645, z: 0.056922913}
+--- !u!65 &65435801125315586
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2751212, y: 0.057071805, z: 0.17082214}
+  m_Center: {x: 0, y: 0.17067736, z: 0}
+--- !u!65 &65644250482514582
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2751212, y: 0.20950913, z: 0.06023693}
+  m_Center: {x: 0, y: 0.0944587, z: -0.055292606}
