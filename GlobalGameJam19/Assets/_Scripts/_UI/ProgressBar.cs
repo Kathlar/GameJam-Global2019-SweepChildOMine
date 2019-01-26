@@ -38,6 +38,7 @@ public class ProgressBar : MonoBehaviour
 
     public void SetPosition(Vector3 inGamePosition)
     {
+        if(transform != null)
         transform.position = GlobalVariables.Instance.mainCamera.WorldToScreenPoint(inGamePosition);
     }
 }

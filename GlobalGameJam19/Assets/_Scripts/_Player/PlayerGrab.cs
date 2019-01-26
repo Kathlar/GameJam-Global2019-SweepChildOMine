@@ -17,6 +17,8 @@ public class PlayerGrab : MonoBehaviour
 
     [HideInInspector] public bool inProgress;
 
+    public Collider grabbedCollider;
+
     private void Awake()
     {
         movement = GetComponent<PlayerMovement>();
@@ -72,11 +74,13 @@ public class PlayerGrab : MonoBehaviour
             {
                 this.grabbedCouch = couch;
             }
+            //grabbedCollider.enabled = true;
         }
     }
 
     protected void DoDrop()
     {
+        grabbedCollider.enabled = false;
         movement.actualMoveSpeed = movement.moveSpeed;
         itemGrabbed = false;
         if (grabbedItem != null)
