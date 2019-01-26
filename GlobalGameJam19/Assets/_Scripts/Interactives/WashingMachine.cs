@@ -12,6 +12,7 @@ public class WashingMachine : Shelf {
     public List<GameObject> Clothes = new List<GameObject>();
     bool IsWorking = false;
     protected AudioSource sound;
+    public GameObject fiut;
 
     private void Awake()
     {
@@ -28,7 +29,7 @@ public class WashingMachine : Shelf {
 
         if (itemOn != null)
         {
-            if (itemOn.objectType == ItemObjectType.Cloth && item.status == 0 && !IsWorking)
+            if (itemOn.objectType == ItemObjectType.Cloth && itemOn.status == 0 && !IsWorking)
             {
                 itemOn.enabled = false;
                 rotaion = transform.rotation;
@@ -46,7 +47,7 @@ public class WashingMachine : Shelf {
                 }
             }
             else
-                item.transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+                itemOn.transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
         }
     }
 
@@ -58,10 +59,11 @@ public class WashingMachine : Shelf {
         transform.rotation = rotaion;
         if (Clothes.Count > 0)
         {
+            Clothes[0].GetComponent<ItemObject>().originalParent = null;
             Clothes[0].transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1.5f);
             Clothes[0].GetComponent<MeshRenderer>().enabled = true;
-            Clothes[0].transform.SetParent(null);
-            Clothes.Remove(Clothes[0]);
+            Clothes[0].transform.SetParent(fiut.transform);
+            Clothes.RemoveAt(0);
         }
         IsWorking = false;
     }

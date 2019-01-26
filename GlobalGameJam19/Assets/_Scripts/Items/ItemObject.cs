@@ -11,7 +11,7 @@ public class ItemObject : MonoBehaviour
     [HideInInspector] public MeshRenderer renderer;
     protected List<Collider> colliders;
     protected Rigidbody rb;
-    protected Transform originalParent;
+    [HideInInspector] public Transform originalParent;
 
     [HideInInspector] public bool grabbed;
     [HideInInspector] public Shelf objectOn;
