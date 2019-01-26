@@ -71,23 +71,36 @@ public class PlayerController : MonoBehaviour
             horizontal = entity.inputDevice.LeftStickX;
             vertical = entity.inputDevice.LeftStickY;
 
-            horizontalRotation = entity.inputDevice.LeftStickX;
-            verticalRotation = entity.inputDevice.LeftStickY;
+            horizontalRotation = entity.inputDevice.RightStickX;
+            verticalRotation = entity.inputDevice.RightStickY;
+
+            if (Mathf.Abs(horizontalRotation) > _minimalInputVale || Mathf.Abs(verticalRotation) > _minimalInputVale) onlyRotate = true;
+            else onlyRotate = false;
 
             grabItem = entity.inputDevice.Action1.WasPressed;
         }
     }
 
+    public bool onlyRotate;
     protected void HandleInputs()
     {
         lastMoveVector = new Vector3(horizontal, 0, vertical);
         lastRotationVector = new Vector3(horizontalRotation, 0, verticalRotation);
 
-        if (shouldMove && (Mathf.Abs(horizontal) > _minimalInputVale || Mathf.Abs(vertical) > _minimalInputVale)) movement.Move(lastMoveVector);
+        if (!onlyRotate && shouldMove && (Mathf.Abs(horizontal) > _minimalInputVale || Mathf.Abs(vertical) > _minimalInputVale)) movement.Move(lastMoveVector);
         else movement.Idle();
 
-        if(!shouldntRotate && (Mathf.Abs(horizontalRotation) > _minimalInputVale || Mathf.Abs(verticalRotation) > _minimalInputVale))
-            movement.Rotate(lastRotationVector);
+        if(!shouldntRotate && (Mathf.Abs(horizontal + horizontalRotation) > _minimalInputVale || Mathf.Abs(vertical + verticalRotation) > _minimalInputVale))
+        {
+            if(onlyRotate)
+            {
+                movement.Rotate(lastRotationVector);
+            }
+            else
+            {
+                movement.Rotate(lastMoveVector);
+            }
+        }
         else movement.RotationIdle();
 
         if(grabItem) itemGrab.Grab();
