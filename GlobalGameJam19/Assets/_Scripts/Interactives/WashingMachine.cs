@@ -9,6 +9,7 @@ public class WashingMachine : Shelf {
     public GameObject clothes;
     public Animator animator;
     Quaternion rotaion;
+    public List<GameObject> Clothes = new List<GameObject>();
 
     protected override void OnTriggerEnter(Collider other)
     {
@@ -26,11 +27,14 @@ public class WashingMachine : Shelf {
                 rotaion = transform.rotation;
                 Destroy(item.gameObject);
                 currentCapacity += 1;
-                if(currentCapacity == 1)
+                if (currentCapacity == 1)
+                {
                     window.GetComponent<MeshRenderer>().enabled = true;
-                Invoke("OpenWaschingMachine", 5f);
-                animator.SetBool("waschingMachine", true);
-                
+                    Invoke("OpenWaschingMachine", 5f);
+                    animator.enabled = true;
+                    animator.SetBool("waschingMachine", true);
+                    currentCapacity = 0;
+                }
             }
             else
                 item.transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
@@ -42,7 +46,12 @@ public class WashingMachine : Shelf {
         window.GetComponent<MeshRenderer>().enabled = false;
         animator.enabled = false;
         transform.rotation = rotaion;
-        clothes.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1.5f);
-        clothes.GetComponent<MeshRenderer>().enabled = true;
+        if (Clothes.Count > 0)
+        {
+            Clothes[0].transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1.5f);
+            Clothes[0].GetComponent<MeshRenderer>().enabled = true;
+            Clothes[0].transform.SetParent(null);
+            Clothes.Remove(Clothes[0]);
+        }
     }
 }
