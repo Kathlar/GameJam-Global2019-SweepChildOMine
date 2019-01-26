@@ -20,7 +20,7 @@ public class ItemObject : MonoBehaviour
 
     bool movingToPlayersHand;
 
-    void Awake()
+    protected virtual void Awake()
     {
         renderer = GetComponent<MeshRenderer>();
         colliders = new List<Collider>();
