@@ -120,11 +120,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114680205727750180, guid: 5362ce5f5ae8e9c429339e1b341086c5,
-        type: 2}
-      propertyPath: Clothes.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4116219938045680, guid: 5362ce5f5ae8e9c429339e1b341086c5, type: 2}
       propertyPath: m_LocalPosition.x
       value: 10.944264
@@ -157,24 +152,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 114680205727750180, guid: 5362ce5f5ae8e9c429339e1b341086c5,
-        type: 2}
-      propertyPath: Clothes.Array.data[0]
-      value: 
-      objectReference: {fileID: 1230182882}
-    - target: {fileID: 114680205727750180, guid: 5362ce5f5ae8e9c429339e1b341086c5,
-        type: 2}
-      propertyPath: Clothes.Array.data[1]
-      value: 
-      objectReference: {fileID: 3687909}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5362ce5f5ae8e9c429339e1b341086c5, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &3687909 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1264918815342492, guid: 5362ce5f5ae8e9c429339e1b341086c5,
-    type: 2}
-  m_PrefabInternal: {fileID: 3687908}
 --- !u!1001 &31076143
 Prefab:
   m_ObjectHideFlags: 0
@@ -833,6 +813,26 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114857140154622828, guid: 73e4aa4144bec00408fe7e623ad8d233,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114857140154622828, guid: 73e4aa4144bec00408fe7e623ad8d233,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114666626135270664, guid: 73e4aa4144bec00408fe7e623ad8d233,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114666626135270664, guid: 73e4aa4144bec00408fe7e623ad8d233,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73e4aa4144bec00408fe7e623ad8d233, type: 2}
   m_IsPrefabAsset: 0
@@ -966,11 +966,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ede2009d4707164cbf0f077e7f4f0dd, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1230182882 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1773495586677106, guid: 5362ce5f5ae8e9c429339e1b341086c5,
-    type: 2}
-  m_PrefabInternal: {fileID: 3687908}
 --- !u!1001 &1237564826
 Prefab:
   m_ObjectHideFlags: 0
@@ -1822,10 +1817,6 @@ Prefab:
     - target: {fileID: 400000, guid: 57030c03561d1fa418b0d7b36512e86b, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4501018265112298, guid: 57030c03561d1fa418b0d7b36512e86b, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.043
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57030c03561d1fa418b0d7b36512e86b, type: 2}

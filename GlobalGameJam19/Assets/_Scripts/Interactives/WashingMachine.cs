@@ -10,6 +10,7 @@ public class WashingMachine : Shelf {
     public Animator animator;
     Quaternion rotaion;
     public List<GameObject> Clothes = new List<GameObject>();
+    bool IsWorking = false;
 
     protected override void OnTriggerEnter(Collider other)
     {
@@ -21,7 +22,7 @@ public class WashingMachine : Shelf {
 
         if (itemOn != null)
         {
-            if (itemOn.objectType == ItemObjectType.Cloth && item.status == 0)
+            if (itemOn.objectType == ItemObjectType.Cloth && item.status == 0 && !IsWorking)
             {
                 itemOn.enabled = false;
                 rotaion = transform.rotation;
@@ -29,6 +30,7 @@ public class WashingMachine : Shelf {
                 currentCapacity += 1;
                 if (currentCapacity == 1)
                 {
+                    IsWorking = true;
                     window.GetComponent<MeshRenderer>().enabled = true;
                     Invoke("OpenWaschingMachine", 5f);
                     animator.enabled = true;
@@ -53,5 +55,6 @@ public class WashingMachine : Shelf {
             Clothes[0].transform.SetParent(null);
             Clothes.Remove(Clothes[0]);
         }
+        IsWorking = false;
     }
 }
