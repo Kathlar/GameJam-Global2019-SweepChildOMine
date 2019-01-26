@@ -388,9 +388,6 @@ MonoBehaviour:
   grabbedRightState: {fileID: 436967677}
   grabbedLeftState: {fileID: 734602145}
   grabbedBothState: {fileID: 892658768}
-  leftPlayer: {fileID: 0}
-  rightPlayer: {fileID: 0}
-  myState: 0
 --- !u!54 &556928128
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -723,6 +720,11 @@ Prefab:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1196732410}
+    - target: {fileID: 114651033901480526, guid: 73e4aa4144bec00408fe7e623ad8d233,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73e4aa4144bec00408fe7e623ad8d233, type: 2}
   m_IsPrefabAsset: 0
@@ -1121,6 +1123,48 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdf46fe0f329ae84db0dbb73ae7130c0, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1001 &2040889383
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: e0a493ad70450974bb99f808385efdf9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e0a493ad70450974bb99f808385efdf9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e0a493ad70450974bb99f808385efdf9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e0a493ad70450974bb99f808385efdf9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e0a493ad70450974bb99f808385efdf9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e0a493ad70450974bb99f808385efdf9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e0a493ad70450974bb99f808385efdf9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: e0a493ad70450974bb99f808385efdf9, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e0a493ad70450974bb99f808385efdf9, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &2118920063
 Prefab:

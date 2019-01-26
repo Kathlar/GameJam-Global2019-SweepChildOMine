@@ -16,12 +16,19 @@ public class ItemObject : MonoBehaviour
     [HideInInspector] public bool grabbed;
     [HideInInspector] public Shelf objectOn;
 
+    bool movingToPlayersHand;
+
     void Awake()
     {
         renderer = GetComponent<MeshRenderer>();
         collider = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
         originalParent = transform.parent;
+    }
+
+    private void Update()
+    {
+        if (movingToPlayersHand && (transform.parent == null || transform.parent == originalParent)) transform.DOKill();
     }
 
     public virtual bool Grab(Transform parent = null, PlayerGrab player = null)
@@ -56,8 +63,9 @@ public class ItemObject : MonoBehaviour
 
     public virtual void DoMove(Vector3 localPos, float moveTime = .5f, float rotateTime = 1f)
     {
+        movingToPlayersHand = true;
         transform.DOLocalMove(localPos, moveTime);
-        transform.DOLocalRotate(localPos, rotateTime);
+        transform.DOLocalRotate(localPos, rotateTime).OnComplete(delegate { movingToPlayersHand = false; });
     }
 }
 
