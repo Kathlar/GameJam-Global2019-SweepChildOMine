@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +16,8 @@ public class ItemObject : MonoBehaviour
     [HideInInspector] public bool grabbed;
     [HideInInspector] public Shelf objectOn;
 
+    bool movingToPlayersHand;
+
     void Awake()
     {
         renderer = GetComponent<MeshRenderer>();
@@ -23,7 +26,12 @@ public class ItemObject : MonoBehaviour
         originalParent = transform.parent;
     }
 
-    public void Grab(Transform parent = null)
+    private void Update()
+    {
+        if (movingToPlayersHand && (transform.parent == null || transform.parent == originalParent)) transform.DOKill();
+    }
+
+    public virtual bool Grab(Transform parent = null, PlayerGrab player = null)
     {
         if (parent != null) transform.SetParent(parent);
 
@@ -36,9 +44,10 @@ public class ItemObject : MonoBehaviour
 
         if (collider != null) collider.enabled = false;
         if (objectOn != null) objectOn.PutOff();
+        return true;
     }
 
-    public void Drop()
+    public virtual void Drop(PlayerGrab player = null)
     {
         transform.SetParent(originalParent);
 
@@ -50,6 +59,13 @@ public class ItemObject : MonoBehaviour
         }
 
         if (collider != null) collider.enabled = true;
+    }
+
+    public virtual void DoMove(Vector3 localPos, float moveTime = .5f, float rotateTime = 1f)
+    {
+        movingToPlayersHand = true;
+        transform.DOLocalMove(localPos, moveTime);
+        transform.DOLocalRotate(localPos, rotateTime).OnComplete(delegate { movingToPlayersHand = false; });
     }
 }
 
