@@ -2044,7 +2044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeLeftText: {fileID: 114073014144038400}
-  timeLeft: 50
+  timeLeft: 20
   points: 0
   maxPoints: 0
   itemPositions: []
