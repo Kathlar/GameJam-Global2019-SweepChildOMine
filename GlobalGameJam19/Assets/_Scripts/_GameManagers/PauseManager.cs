@@ -49,6 +49,7 @@ public class PauseManager : ASingleton<PauseManager>
 
     public void ExitGame()
     {
+        UnpauseTheGame();
         SceneManager.LoadScene("MainMenu");
     }
 }

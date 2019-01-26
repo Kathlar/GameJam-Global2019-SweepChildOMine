@@ -6,7 +6,6 @@ public class Shelf : AInteractive
 {
     public Transform placePosition;
     [HideInInspector] public ItemObject itemOn;
-
     protected virtual void OnTriggerEnter(Collider other)
     {
         ItemObject item = other.GetComponent<ItemObject>();
