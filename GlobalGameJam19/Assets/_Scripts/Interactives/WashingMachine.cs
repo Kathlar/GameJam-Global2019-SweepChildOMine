@@ -47,7 +47,7 @@ public class WashingMachine : Shelf {
                 }
             }
             else
-                itemOn.transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+                itemOn.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         }
     }
 
@@ -57,14 +57,19 @@ public class WashingMachine : Shelf {
         animator.enabled = false;
         sound.Stop();
         transform.rotation = rotaion;
+        IsWorking = false;
+        Invoke("AddClothes", 0.5f);
+    }
+
+    private void AddClothes()
+    {
         if (Clothes.Count > 0)
         {
             Clothes[0].GetComponent<ItemObject>().originalParent = null;
-            Clothes[0].transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1.5f);
+            Clothes[0].transform.position = new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z);
             Clothes[0].GetComponent<MeshRenderer>().enabled = true;
             Clothes[0].transform.SetParent(fiut.transform);
             Clothes.RemoveAt(0);
         }
-        IsWorking = false;
     }
 }
