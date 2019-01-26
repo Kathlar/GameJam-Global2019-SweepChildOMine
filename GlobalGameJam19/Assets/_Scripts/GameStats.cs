@@ -60,6 +60,7 @@ public class GameStats : MonoBehaviour
         foreach(var cipa in FindObjectsOfType<PlayerController>())
         {
             cipa.enabled = false;
+            cipa.GetComponent<PlayerMovement>().Move(Vector3.zero);
         }
         StartCoroutine(EndCoroutine());
     }
