@@ -264,6 +264,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &436967677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: bfdb6623e4d583a4db78a56058d28f58,
+    type: 2}
+  m_PrefabInternal: {fileID: 1179210169}
 --- !u!1 &512988375
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,10 +384,13 @@ MonoBehaviour:
   objectOn: {fileID: 0}
   leftPoint: {fileID: 512988376}
   rightPoint: {fileID: 885238665}
-  regularState: {fileID: 0}
-  grabbedRightState: {fileID: 0}
-  grabbedLeftState: {fileID: 0}
-  grabbedBothState: {fileID: 0}
+  regularState: {fileID: 968222971}
+  grabbedRightState: {fileID: 436967677}
+  grabbedLeftState: {fileID: 734602145}
+  grabbedBothState: {fileID: 892658768}
+  leftPlayer: {fileID: 0}
+  rightPlayer: {fileID: 0}
+  myState: 0
 --- !u!54 &556928128
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -429,6 +437,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.1031685, y: 1, z: 1.6430149}
   m_Center: {x: 0, y: 0.5, z: 0.0000009536743}
+--- !u!1 &734602145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: bfdb6623e4d583a4db78a56058d28f58,
+    type: 2}
+  m_PrefabInternal: {fileID: 784435999}
 --- !u!1001 &784435999
 Prefab:
   m_ObjectHideFlags: 0
@@ -512,6 +525,11 @@ Transform:
   m_Father: {fileID: 556928129}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &892658768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: bfdb6623e4d583a4db78a56058d28f58,
+    type: 2}
+  m_PrefabInternal: {fileID: 898098108}
 --- !u!1001 &898098108
 Prefab:
   m_ObjectHideFlags: 0
@@ -651,6 +669,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfdb6623e4d583a4db78a56058d28f58, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &968222971 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: bfdb6623e4d583a4db78a56058d28f58,
+    type: 2}
+  m_PrefabInternal: {fileID: 968222970}
 --- !u!4 &968222972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: bfdb6623e4d583a4db78a56058d28f58,
@@ -918,6 +941,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114100216420630066, guid: a33b0aaf26952a143b1455db47f9df3b,
+        type: 2}
+      propertyPath: debugPlayerSpawnInfo.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4270401816701164, guid: a33b0aaf26952a143b1455db47f9df3b, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -953,6 +981,11 @@ Prefab:
     - target: {fileID: 114100216420630066, guid: a33b0aaf26952a143b1455db47f9df3b,
         type: 2}
       propertyPath: debugPlayerSpawnInfo.Array.data[0].controllerType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114100216420630066, guid: a33b0aaf26952a143b1455db47f9df3b,
+        type: 2}
+      propertyPath: debugPlayerSpawnInfo.Array.data[1].controllerType
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

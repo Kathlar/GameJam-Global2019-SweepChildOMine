@@ -9,7 +9,7 @@ public class PlayerGrab : MonoBehaviour
 
     public Transform grabPosition;
 
-    public ItemObject itemToGrab;
+    protected ItemObject itemToGrab;
     protected ItemObject grabbedItem;
     protected Couch grabbedCouch;
 
@@ -54,7 +54,7 @@ public class PlayerGrab : MonoBehaviour
 
     protected void DoGrab()
     {
-        if (itemToGrab != null && !itemToGrab.grabbed)
+        if (itemToGrab != null)
         {
             if (!itemToGrab.Grab(grabPosition, this)) return;
             itemGrabbed = true;
@@ -73,7 +73,10 @@ public class PlayerGrab : MonoBehaviour
     protected void DoDrop()
     {
         itemGrabbed = false;
-        grabbedItem.Drop();
+        if (grabbedItem != null)
+        {
+            grabbedItem.Drop(this);
+        }
         itemToGrab = grabbedItem;
         grabbedItem = null;
         grabbedCouch = null;

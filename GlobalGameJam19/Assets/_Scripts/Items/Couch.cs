@@ -67,7 +67,7 @@ public class Couch : ItemObject
         grabbed = true;
         if (objectOn != null) objectOn.PutOff();
 
-        rb.useGravity = false;
+        //rb.useGravity = false;
 
         closerPoint.transform.position += Vector3.up;
 
@@ -77,23 +77,31 @@ public class Couch : ItemObject
     public override void Drop(PlayerGrab player = null)
     {
         base.Drop(player);
-        SetState(State.Regular);
+        SetState(State.Regular, player.transform);
 
-        if(player == leftPlayer)
+        if(player.transform == leftPlayer)
         {
             leftPlayer = null;
             leftGrabbed = false;
         }
-        if(player == rightPlayer)
+        if(player.transform == rightPlayer)
         {
             rightPlayer = null;
             rightGrabbed = false;
         }
     }
 
-    void SetState(State proposedState)
+    void SetState(State proposedState, Transform player = null)
     {
-        if (proposedState == State.Regular) myState = proposedState;
+        if (proposedState == State.Regular)
+        {
+            if(myState == State.Both)
+            {
+                if (player == leftPlayer) myState = State.Right;
+                else myState = State.Left;
+            }
+            else myState = proposedState;
+        }
 
         if (myState == State.Regular) myState = proposedState;
         else if (myState == State.Left && proposedState == State.Right) myState = State.Both;
@@ -126,7 +134,7 @@ public class Couch : ItemObject
 
     }
 
-    protected enum State
+    public enum State
     {
         Regular, Left, Right, Both
     }
