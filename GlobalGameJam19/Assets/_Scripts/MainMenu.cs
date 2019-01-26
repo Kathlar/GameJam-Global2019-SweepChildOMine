@@ -2,12 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class MainMenu : MonoBehaviour
 {
+    public Camera camer;
+    public Transform startPosition, playerPosition;
+    public GameObject playerMenu;
+
     public void PlayGame ()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        camer.transform.DOMove(playerPosition.position, 1f);
+        camer.transform.DORotate(playerPosition.eulerAngles, 1f).OnComplete(delegate { playerMenu.SetActive(true); });
+    }
+
+    public void CancelPlay()
+    {
+        playerMenu.SetActive(false);
+        camer.transform.DOMove(startPosition.position, 1f);
+        camer.transform.DORotate(startPosition.eulerAngles, 1f);
     }
 
     public void QuitGame ()
