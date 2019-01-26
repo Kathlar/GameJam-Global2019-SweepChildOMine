@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 114923105985054420}
   - component: {fileID: 114505729278149098}
   - component: {fileID: 65692832989441200}
+  - component: {fileID: 65088937136312464}
   m_Layer: 9
   m_Name: _Player
   m_TagString: Untagged
@@ -188,7 +189,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1463252584691476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.1166196, y: 0.72, z: -0.6861658}
+  m_LocalPosition: {x: 9.775738, y: 13.60401, z: -0.9769163}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4278037961977502}
@@ -337,6 +338,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &65088937136312464
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1463252584691476}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0.46}
 --- !u!65 &65692832989441200
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -361,6 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coloredMesh: {fileID: 23933511889373594}
+  onlyRotate: 0
 --- !u!114 &114505729278149098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -374,6 +388,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabPosition: {fileID: 4231167713498338}
   itemGrabbed: 0
+  inProgress: 0
+  grabbedCollider: {fileID: 65088937136312464}
 --- !u!114 &114923105985054420
 MonoBehaviour:
   m_ObjectHideFlags: 1
