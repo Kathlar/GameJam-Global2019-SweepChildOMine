@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : ASingleton<PauseManager>
 {
     bool gamePaused;
     public GameObject pauseMenu;
 
+    private void Start()
+    {
+        if (pauseMenu != null) pauseMenu.SetActive(false);
+    }
+
     public static void TryPause(bool showMenu = false)
     {
-        if (Instance.gamePaused) UnpauseGame();
-        else PauseGame();
+        if (Instance.gamePaused) UnpauseGame(showMenu);
+        else PauseGame(showMenu);
     }
 
     public static void PauseGame(bool showMenu = false)
@@ -34,5 +40,15 @@ public class PauseManager : ASingleton<PauseManager>
         }
         if (hideMenu && Instance.pauseMenu != null) Instance.pauseMenu.SetActive(false);
         Time.timeScale = 1;
+    }
+
+    public void UnpauseTheGame()
+    {
+        UnpauseGame(true);
+    }
+
+    public void ExitGame()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

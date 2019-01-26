@@ -12,6 +12,7 @@ public class PlayerChoosingMenu : MonoBehaviour
     int currentWindow = 0;
     bool key1, key2;
     protected List<int> padsUsed = new List<int>();
+    public GameObject presInfo;
 
     public GameObject startGameButton;
 
@@ -27,6 +28,7 @@ public class PlayerChoosingMenu : MonoBehaviour
         {
             window.SetActive(false);
         }
+        presInfo.SetActive(false);
     }
 
     private void OnEnable()
@@ -36,6 +38,7 @@ public class PlayerChoosingMenu : MonoBehaviour
 
     void Update()
     {
+        if (!MainMenu.dupa) return;
         if (currentWindow > 0) startGameButton.SetActive(true);
 
         if (currentWindow >= 4) return;
@@ -46,6 +49,7 @@ public class PlayerChoosingMenu : MonoBehaviour
             CustomPlayerSpawner.customInfo.Add(new DebugPlayerSpawnInformation(PlayerEntity.PlayerControllerType.Keyboard));
             playerTexts[currentWindow].text = "PLAYER " + (currentWindow + 1).ToString() + "\n" + "KEYBOARD";
             currentWindow++;
+            presInfo.SetActive(false);
         }
         if(!key2 && Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -54,13 +58,15 @@ public class PlayerChoosingMenu : MonoBehaviour
             CustomPlayerSpawner.customInfo.Add(new DebugPlayerSpawnInformation(PlayerEntity.PlayerControllerType.Keyboard));
             playerTexts[currentWindow].text = "PLAYER " + (currentWindow + 1).ToString() + "\n" + "KEYBOARD";
             currentWindow++;
+            presInfo.SetActive(false);
         }
 
         for(int i = 0; i < InputManager.ActiveDevices.Count; i++)
         {
             if(!padsUsed.Contains(i))
             {
-                if(InputManager.ActiveDevices[i].Action1)
+                presInfo.SetActive(false);
+                if (InputManager.ActiveDevices[i].Action1)
                 {
                     padsUsed.Add(i);
                     playerWindows[currentWindow].SetActive(true);
@@ -75,7 +81,14 @@ public class PlayerChoosingMenu : MonoBehaviour
     public void StartGame()
     {
         if(currentWindow > 0)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        {
+            MainMenu menu = FindObjectOfType<MainMenu>();
+            menu.blackoutImage.color = new Color(0, 0, 0, 1);
+            MainMenu.dupa = false;
+            menu.CancelPlay(false);
+            if (currentWindow > 0)
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     public void Cancel()
@@ -94,5 +107,8 @@ public class PlayerChoosingMenu : MonoBehaviour
         {
             window.SetActive(false);
         }
+        presInfo.SetActive(true);
+        startGameButton.SetActive(false);
+        MainMenu.dupa = false;
     }
 }
