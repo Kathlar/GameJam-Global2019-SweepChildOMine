@@ -156,22 +156,6 @@ Prefab:
       propertyPath: m_Name
       value: SO_RubbishBin_02 (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4336334676051132, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
   m_IsPrefabAsset: 0
