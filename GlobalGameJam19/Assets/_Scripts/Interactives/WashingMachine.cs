@@ -11,6 +11,12 @@ public class WashingMachine : Shelf {
     Quaternion rotaion;
     public List<GameObject> Clothes = new List<GameObject>();
     bool IsWorking = false;
+    protected AudioSource sound;
+
+    private void Awake()
+    {
+        sound = GetComponent<AudioSource>();
+    }
 
     protected override void OnTriggerEnter(Collider other)
     {
@@ -35,6 +41,7 @@ public class WashingMachine : Shelf {
                     Invoke("OpenWaschingMachine", 5f);
                     animator.enabled = true;
                     animator.SetBool("waschingMachine", true);
+                    sound.Play();
                     currentCapacity = 0;
                 }
             }
@@ -47,6 +54,7 @@ public class WashingMachine : Shelf {
     {
         window.GetComponent<MeshRenderer>().enabled = false;
         animator.enabled = false;
+        sound.Stop();
         transform.rotation = rotaion;
         if (Clothes.Count > 0)
         {
