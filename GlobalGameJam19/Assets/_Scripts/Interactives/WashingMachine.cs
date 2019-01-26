@@ -8,7 +8,12 @@ public class WashingMachine : Shelf {
     protected override void OnTriggerEnter(Collider other)
     {
         ItemObject item = other.GetComponent<ItemObject>();
-        base.OnTriggerEnter(other);
+
+        if (item && !item.grabbed)
+        {
+            PutOn(item);
+        }
+
         if (itemOn != null)
         {
             if (itemOn.objectType == ItemObjectType.Cloth && item.status == 0)

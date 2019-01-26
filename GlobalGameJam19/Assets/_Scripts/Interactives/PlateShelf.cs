@@ -43,8 +43,4 @@ public class PlateShelf : Shelf
             }
         }
     }
-
-    void Update ()
-    {
-    }
 }
