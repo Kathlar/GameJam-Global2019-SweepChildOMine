@@ -9,11 +9,16 @@ public class MainMenu : MonoBehaviour
     public Camera camer;
     public Transform startPosition, playerPosition;
     public GameObject playerMenu;
+    public static bool dupa;
+
 
     public void PlayGame ()
     {
         camer.transform.DOMove(playerPosition.position, 1f);
-        camer.transform.DORotate(playerPosition.eulerAngles, 1f).OnComplete(delegate { playerMenu.SetActive(true); });
+        camer.transform.DORotate(playerPosition.eulerAngles, 1f).OnComplete(delegate { playerMenu.SetActive(true); FindObjectOfType<PlayerChoosingMenu>().presInfo.SetActive(true);
+            dupa = true;
+            playerMenu.SetActive(true);
+        });
     }
 
     public void CancelPlay()
@@ -21,6 +26,7 @@ public class MainMenu : MonoBehaviour
         playerMenu.SetActive(false);
         camer.transform.DOMove(startPosition.position, 1f);
         camer.transform.DORotate(startPosition.eulerAngles, 1f);
+        dupa = false;
     }
 
     public void QuitGame ()
