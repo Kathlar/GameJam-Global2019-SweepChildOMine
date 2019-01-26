@@ -169,8 +169,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugPlayerSpawnInfo:
-  - controllerType: 0
-  - controllerType: 1
+  - forcedNumber: 0
+    controllerType: 0
+  - forcedNumber: 0
+    controllerType: 1
 --- !u!114 &114767796406605884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,8 +184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadd1a26cc9d03147987ebebcaba8a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 1463252584691476, guid: 16172169498d1db49b2025ab0d9d6b83,
-    type: 2}
+  playerPrefabs:
+  - {fileID: 1463252584691476, guid: 16172169498d1db49b2025ab0d9d6b83, type: 2}
+  - {fileID: 1781219616916066, guid: 575eab4e4f9856941bb05f8c7dd318a3, type: 2}
   spawnPoints:
   - {fileID: 4162412561829212}
   - {fileID: 4816644692362128}
