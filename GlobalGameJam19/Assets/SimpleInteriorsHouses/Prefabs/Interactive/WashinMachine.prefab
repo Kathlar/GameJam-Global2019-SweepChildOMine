@@ -476,6 +476,9 @@ MonoBehaviour:
   window: {fileID: 1089623752546874}
   clothes: {fileID: 1773495586677106}
   animator: {fileID: 95446196094959292}
+  Clothes:
+  - {fileID: 1773495586677106}
+  - {fileID: 1264918815342492}
 --- !u!114 &114736539754245308
 MonoBehaviour:
   m_ObjectHideFlags: 1
