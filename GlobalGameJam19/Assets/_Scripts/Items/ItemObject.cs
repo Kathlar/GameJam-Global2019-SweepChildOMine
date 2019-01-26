@@ -50,7 +50,8 @@ public class ItemObject : MonoBehaviour
         {
             foreach(Collider col in colliders)
             {
-                col.enabled = false;
+                if(!col.isTrigger)
+                    col.enabled = false;
             }
         }
         if (objectOn != null) objectOn.PutOff();
