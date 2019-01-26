@@ -7,7 +7,7 @@ public class Shelf : AInteractive
     public Transform placePosition;
     [HideInInspector] public ItemObject itemOn;
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         ItemObject item = other.GetComponent<ItemObject>();
 
@@ -27,9 +27,10 @@ public class Shelf : AInteractive
         }
     }
 
-    protected virtual void PutOn(ItemObject item)
+    protected virtual void PutOn(ItemObject item, Transform placePosition = null)
     {
         item.transform.position = placePosition.position;
+        item.transform.rotation = placePosition.rotation;
         itemOn = item;
         itemOn.objectOn = this;
     }
