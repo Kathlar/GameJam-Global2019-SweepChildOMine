@@ -29,8 +29,11 @@ public class Shelf : AInteractive
 
     protected virtual void PutOn(ItemObject item, Transform placePosition = null)
     {
-        item.transform.position = placePosition.position;
-        item.transform.rotation = placePosition.rotation;
+        Transform transform = placePosition;
+        if (placePosition == null)
+            transform = this.placePosition;
+        item.transform.position = transform.position;
+        item.transform.rotation = transform.rotation;
         itemOn = item;
         itemOn.objectOn = this;
     }
