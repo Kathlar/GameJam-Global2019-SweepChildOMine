@@ -55,6 +55,8 @@ public class ItemObject : MonoBehaviour
                     col.enabled = false;
             }
         }
+        //if(objectType == ItemObjectType.Cloth)
+        //    transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX;
         if (objectOn != null) objectOn.PutOff();
         return true;
     }

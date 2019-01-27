@@ -68,7 +68,7 @@ public class WashingMachine : Shelf {
             Clothes[0].GetComponent<ItemObject>().originalParent = null;
             Clothes[0].transform.position = new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z);
             Clothes[0].GetComponent<MeshRenderer>().enabled = true;
-            Clothes[0].transform.SetParent(fiut.transform);
+            //Clothes[0].transform.SetParent(fiut.transform);
             Clothes.RemoveAt(0);
         }
     }
