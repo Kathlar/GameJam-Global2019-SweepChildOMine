@@ -5,8 +5,9 @@ using TMPro;
 using System;
 using DG.Tweening;
 
-public class GameStats : MonoBehaviour
+public class GameStats : ASingleton<GameStats>
 {
+    public GameObject timeLeftPanel;
     public TextMeshProUGUI timeLeftText;
     public float timeLeft = 300;
 
@@ -24,13 +25,14 @@ public class GameStats : MonoBehaviour
 
     private void Start()
     {
+        timerStarted = false;
         CountMaxPoints();
         statistiscView.SetActive(false);
     }
-
+    bool timerStarted;
     private void Update()
     {
-        if (gameEnded) return;
+        if (gameEnded || !timerStarted) return;
         timeLeft -= Time.deltaTime;
         if(timeLeft <= 0)
         {
@@ -47,7 +49,7 @@ public class GameStats : MonoBehaviour
         else if (minutesLeft > 0)
             return minutesLeft.ToString() + "m " + (Mathf.Floor(timeLeft - minutesLeft * 60)).ToString() + "s";
         else
-            return timeLeft + "s";
+            return Mathf.Floor(timeLeft) + "s";
     }
 
     void EndGame()
@@ -165,6 +167,12 @@ public class GameStats : MonoBehaviour
             numberOfDirt++;
         }
         maxPoints = numberOfPoints;
+    }
+
+    public static void StartTimer()
+    {
+        Instance.timeLeftPanel.SetActive(true);
+        Instance.timerStarted = true;
     }
 }
 
