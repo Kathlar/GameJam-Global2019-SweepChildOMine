@@ -39,7 +39,7 @@ public class PlateShelf : Shelf
             }
             else
             {
-                item.transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+                itemOn.transform.position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
             }
         }
     }

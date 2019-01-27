@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trash : MonoBehaviour {
+public class Trash : Shelf
+{
+    protected override void OnTriggerEnter(Collider other)
+    {
+        ItemObject item = other.GetComponent<ItemObject>();
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        if (item && !item.grabbed)
+        {
+            PutOn(item, placePosition);
+        }
+        if (itemOn != null && itemOn.objectType == ItemObjectType.GarbageBag)
+            Destroy(item.gameObject);
+    }
 }
