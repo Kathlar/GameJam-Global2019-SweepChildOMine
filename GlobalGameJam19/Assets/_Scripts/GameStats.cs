@@ -25,6 +25,7 @@ public class GameStats : ASingleton<GameStats>
 
     private void Start()
     {
+        timeLeftPanel.SetActive(false);
         timerStarted = false;
         CountMaxPoints();
         statistiscView.SetActive(false);

@@ -2043,8 +2043,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b79da5977cf8e43a9564a9c968a74b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeLeftPanel: {fileID: 1213589522144450}
   timeLeftText: {fileID: 114073014144038400}
-  timeLeft: 50
+  timeLeft: 1000
   points: 0
   maxPoints: 0
   itemPositions: []
@@ -2876,7 +2877,7 @@ RectTransform:
   m_GameObject: {fileID: 1213589522144450}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 224192410813072816}
   - {fileID: 224292952122331702}
