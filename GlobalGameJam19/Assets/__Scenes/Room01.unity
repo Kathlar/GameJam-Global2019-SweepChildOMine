@@ -11649,6 +11649,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.021795, y: 1.1415834, z: 0.15355141}
   m_Center: {x: -0.0004850626, y: 0.5707917, z: 0.030902946}
+--- !u!1001 &1325275003
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -27.912407
+      objectReference: {fileID: 0}
+    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.01999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -3.3354273
+      objectReference: {fileID: 0}
+    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &1325421169
 Prefab:
   m_ObjectHideFlags: 0
@@ -16469,52 +16511,6 @@ Transform:
   m_Father: {fileID: 141744439}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1860751821
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -27.912407
-      objectReference: {fileID: 0}
-    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.01999998
-      objectReference: {fileID: 0}
-    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -3.3354273
-      objectReference: {fileID: 0}
-    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 455162, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0bc339aefee7aa346ac789503900bdb1, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!4 &1862487419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4678177972498044, guid: c0afa580c5ee8484183dafdc704e8768,
