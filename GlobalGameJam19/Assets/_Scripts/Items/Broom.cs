@@ -9,12 +9,14 @@ public class Broom : ItemObject
     public float speed = 1;
 
     protected AudioSource sweepSound;
+    public ParticleSystem particle;
 
     private void Awake()
     {
         base.Awake();
         animator = GetComponent<Animator>();
         sweepSound = GetComponent<AudioSource>();
+        particle.Stop();
     }
 
     private void Update()
@@ -35,7 +37,20 @@ public class Broom : ItemObject
         {
             dirts.Remove(dirt);
         }
+
+        if (grabbed && dirts.Count > 0 && !particleOn)
+        {
+            particle.Play();
+            particleOn = true;
+        }
+        else if(particleOn && (dirts.Count <= 0 || !grabbed))
+        {
+            particle.Stop();
+            particleOn = false;
+        }
     }
+
+    bool particleOn;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -72,6 +87,7 @@ public class Broom : ItemObject
 
     public override void Drop(PlayerGrab player = null)
     {
+        particle.Stop();
         sweepSound.Stop();
         if (animator != null)
             animator.SetBool("used", false);
