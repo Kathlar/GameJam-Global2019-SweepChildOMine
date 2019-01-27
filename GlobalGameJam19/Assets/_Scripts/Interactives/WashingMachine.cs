@@ -35,7 +35,7 @@ public class WashingMachine : Shelf {
                 rotaion = transform.rotation;
                 Destroy(item.gameObject);
                 currentCapacity += 1;
-                if (currentCapacity == 1)
+                if (currentCapacity == 3)
                 {
                     IsWorking = true;
                     window.GetComponent<MeshRenderer>().enabled = true;
