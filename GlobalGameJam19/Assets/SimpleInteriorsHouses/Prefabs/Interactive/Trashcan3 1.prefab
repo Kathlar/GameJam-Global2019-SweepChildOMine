@@ -230,12 +230,30 @@ Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:GlobalGameJam19/Assets/SimpleInteriorsHouses/Prefabs/WithColliders/Trashcan3.prefab
+  m_GameObject: {fileID: 1113201776485386}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.48, y: 0, z: -7.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4520200857876858}
+  - {fileID: 4744766973845270}
+  - {fileID: 4569446781144710}
+  - {fileID: 4420505402397802}
+  - {fileID: 4122643666143566}
+  - {fileID: 4366816364418630}
+  - {fileID: 4119312359041528}
+  - {fileID: 4756229999024240}
+  - {fileID: 4913238740322370}
+  m_Father: {fileID: 0}
+=======
   m_GameObject: {fileID: 1815087365611906}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0.518132, y: 0.10074228, z: 0.90956056}
   m_LocalScale: {x: 0.59230924, y: 0.79949254, z: 0.59230924}
   m_Children: []
   m_Father: {fileID: 4798705522486144}
+>>>>>>> 7e0a9f26f5af6dd02ff933dee25ed0b89cb72089:GlobalGameJam19/Assets/SimpleInteriorsHouses/Prefabs/Interactive/Trashcan3 1.prefab
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4320518768821348
@@ -769,9 +787,15 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
+<<<<<<< HEAD:GlobalGameJam19/Assets/SimpleInteriorsHouses/Prefabs/WithColliders/Trashcan3.prefab
+  m_Size: {x: 1.5689096, y: 1.4582028, z: 1}
+  m_Center: {x: 0.22246313, y: 0.5969293, z: 0}
+--- !u!95 &95038785902334498
+=======
   m_Size: {x: 1.3587596, y: 1, z: 2.2767174}
   m_Center: {x: 0.011189818, y: 0, z: -0.09377563}
 --- !u!95 &95133492714182496
+>>>>>>> 7e0a9f26f5af6dd02ff933dee25ed0b89cb72089:GlobalGameJam19/Assets/SimpleInteriorsHouses/Prefabs/Interactive/Trashcan3 1.prefab
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
