@@ -13,6 +13,7 @@ public class WashingMachine : Shelf {
     bool IsWorking = false;
     protected AudioSource sound;
     public GameObject fiut;
+    public int Capacity = 3;
 
     private void Awake()
     {
@@ -35,7 +36,7 @@ public class WashingMachine : Shelf {
                 rotaion = transform.rotation;
                 Destroy(item.gameObject);
                 currentCapacity += 1;
-                if (currentCapacity == 3)
+                if (currentCapacity == Capacity)
                 {
                     IsWorking = true;
                     window.GetComponent<MeshRenderer>().enabled = true;

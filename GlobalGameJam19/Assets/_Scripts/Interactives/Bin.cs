@@ -7,6 +7,7 @@ public class Bin : Shelf
     protected AudioSource throwAwaySound;
     public List<GameObject> garbageBags = new List<GameObject>();
     int currCapacity = 0;
+    public int Capacity = 5;
 
     private void Awake()
     {
@@ -22,7 +23,7 @@ public class Bin : Shelf
         {
             Destroy(item.gameObject);
             currCapacity += 1;
-            if(currCapacity == 1)
+            if(currCapacity == Capacity)
             {
                 currCapacity = 0;
                 if (garbageBags.Count > 0)
