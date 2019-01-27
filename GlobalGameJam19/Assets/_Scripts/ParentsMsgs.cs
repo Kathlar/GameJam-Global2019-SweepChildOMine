@@ -7,6 +7,7 @@ using DG.Tweening;
 public class ParentsMsgs : ASingleton<ParentsMsgs>
 {
     string text1 = "Hey guys! Me and papa will be back soon. I hope everything is clean ;)";
+    string text2 = "We're already in town, so expect us any minute :)";
 
     public RectTransform hiddenPos, normalPos;
     public RectTransform msgTrans;
@@ -33,5 +34,13 @@ public class ParentsMsgs : ASingleton<ParentsMsgs>
         msgTrans.DOMove(normalPos.position, 1);
         yield return new WaitForSeconds(8);
         msgTrans.DOMove(hiddenPos.position, 1);
+
+        if (msg == text1)
+        {
+            GameStats.StartTimer();
+            float timeLeft = GameStats.Instance.timeLeft - 30;
+            if (timeLeft > 30)
+                ShowMessage(Instance.text2, timeLeft);
+        }
     }
 }
