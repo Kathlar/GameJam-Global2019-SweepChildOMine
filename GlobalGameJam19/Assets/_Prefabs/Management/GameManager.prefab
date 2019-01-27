@@ -2045,7 +2045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeLeftPanel: {fileID: 1213589522144450}
   timeLeftText: {fileID: 114073014144038400}
-  timeLeft: 1000
+  timeLeft: 1200
   points: 0
   maxPoints: 0
   itemPositions: []

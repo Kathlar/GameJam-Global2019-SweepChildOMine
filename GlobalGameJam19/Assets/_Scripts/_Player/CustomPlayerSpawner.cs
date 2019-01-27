@@ -20,6 +20,7 @@ public class CustomPlayerSpawner : MonoBehaviour
         {
             PlayerEntity playerEntity = new PlayerEntity(info.controllerType);
         }
+        GameStats.Instance.timeLeft /= debugPlayerSpawnInfo.Count;
     }
 }
 
